@@ -1,0 +1,34 @@
+BLOCKREALM LEGACY 4.0.0 — QA REPORT
+====================================
+
+PASS  JavaScript syntax validation
+PASS  Service-worker syntax validation
+PASS  WebGL 1 renderer startup in GPU-backed Chromium
+PASS  OpenGL ES 2 / GLSL ES 1.0 compatibility path
+PASS  Deterministic terrain self-test
+PASS  Block solidity self-test
+PASS  2x2 log-to-planks recipe self-test
+PASS  Nine-slot hotbar self-test
+PASS  View-relative forward movement self-test
+PASS  Shader controls self-test
+PASS  Seeded world creation and streamed chunk generation
+PASS  Safe open-ground spawn selection
+PASS  Shader quick control: Reimagined -> Off -> Reimagined
+PASS  No fatal game overlay during the renderer/control test
+PASS  APK archive integrity
+PASS  JAR/APK signature verification
+PASS  Manifest package: com.gamerzartist.blockr4
+PASS  Manifest version name: 4.0.0
+PASS  Manifest version code: 40000
+PASS  Manifest sensor-landscape orientation
+PASS  Manifest OpenGL ES 2 requirement
+PASS  Custom icon reference resolves to packaged res/drawable/icon.png
+PASS  ARM64 native launcher payload
+PASS  ARMv7 native launcher payload
+PASS  x86-64 native launcher payload
+
+NOT PERFORMED
+  Physical Android installation and OEM-specific WebView testing. No Android
+  device or emulator was connected to the build container. The new package ID,
+  visible boot layers and compatibility renderer specifically address the
+  failure evidence supplied from the user's phone.

@@ -1,0 +1,55 @@
+BLOCKREALM: LEGACY 4.0.0 FINAL
+================================
+
+PACKAGE ID
+  com.gamerzartist.blockr4
+
+ANDROID VERSION METADATA
+  Version name: 4.0.0
+  Version code: 40000
+  App label: BlockRealm Legacy
+
+WHY THIS RELEASE IS A SEPARATE APP
+  The earlier APKs incorrectly kept the 2.1.0 manifest and package identity.
+  Android could therefore replace or reopen the old broken launcher. Version 4
+  uses a new package ID, a new label and a green BlockRealm B icon. It installs
+  beside the old BlockRealm app, making stale-package confusion impossible.
+
+BLACK-SCREEN DEFENCES
+  - Visible native launcher text sits behind the WebView.
+  - The HTML game has a staged diagnostic boot screen.
+  - Fatal JavaScript and shader errors show an error panel instead of black.
+  - WebGL 1 / OpenGL ES 2 is the compatibility baseline.
+  - Safe Mode disables expensive visual effects.
+  - All renderer, texture, audio and UI assets are local.
+
+GRAPHICS REWORK
+  - Explicit Enable Shaders switch.
+  - Reimagined and Cinematic presets.
+  - Quick in-game shader on/off button.
+  - Terrain-aware sun and moon visibility.
+  - Godrays and lens flare are suppressed behind stone, terrain and roofs.
+  - Reflective animated water, cloud shade, ambient occlusion and fog.
+  - Adaptive quality can reduce effects automatically on slow devices.
+
+GAME REWORK
+  - Streamed deterministic chunks and multiple biomes.
+  - Safer open-ground spawning.
+  - Caves, ores, lakes, trees, plants and cross-chunk features.
+  - Nine-slot hotbar and 36-slot inventory.
+  - Stack moving, merging, splitting, tools and durability.
+  - 2x2 and 3x3 shaped crafting.
+  - Crafting tables, furnaces, fuel and smelting.
+  - Survival, creative, hunger, health, oxygen, XP and fall damage.
+  - Passive and hostile original creatures with drops and combat.
+  - Autosave, world slots and JSON world export.
+
+INSTALLATION
+  1. Download BlockRealm_Legacy_v4.0.0_FINAL.apk.
+  2. Install it. It does not replace the old BlockRealm app.
+  3. Launch the app named “BlockRealm Legacy” with the green B/cube icon.
+  4. App Info must show version 4.0.0. If it says 2.1.0, the wrong file was opened.
+
+The APK is locally self-signed for sideloading. A physically connected Android
+phone/emulator was unavailable in the build environment, so final installation
+on the user's Realme device remains the device-specific validation step.

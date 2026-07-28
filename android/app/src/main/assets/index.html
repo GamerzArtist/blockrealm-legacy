@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="theme-color" content="#18231c">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>BlockRealm: Legacy v4.1</title>
+<link rel="icon" href="favicon.png">
+</head>
+<body>
+<canvas id="game" aria-label="BlockRealm game canvas"></canvas>
+<div id="skyDecor" aria-hidden="true">
+  <div id="stars"></div>
+  <div id="cloudShadow"></div>
+  <div id="clouds"><i></i><b></b></div>
+  <div id="godrays"></div>
+  <div id="sun"><i></i></div>
+  <div id="moon"><i></i></div>
+  <div id="lensFlare"></div>
+</div>
+
+<div id="bootScreen" class="screen">
+  <div class="menu-card stone-frame">
+    <div class="brand-wrap clean-brand boot-brand">
+      <img class="brand-lockup" src="brand-lockup.png" alt="BlockRealm Legacy">
+      <div class="edition">ORIGINAL MOBILE VOXEL SURVIVAL</div>
+    </div>
+    <div id="bootStatus" class="boot-status">
+      <div class="spinner pixel-spin"></div>
+      <div>
+        <strong id="bootTitle">Starting renderer…</strong>
+        <span id="bootDetail">Checking your browser and graphics driver.</span>
+      </div>
+    </div>
+    <div id="bootBar" class="progress"><i></i></div>
+    <button id="bootRetry" class="mc-btn hidden">RETRY</button>
+    <details class="diagnostics"><summary>Diagnostics</summary><pre id="diagText">Waiting…</pre></details>
+  </div>
+</div>
+
+<div id="mainMenu" class="screen hidden">
+  <div class="panorama"></div>
+  <div class="menu-card title-card">
+    <div class="brand-wrap large menu-brand-wrap">
+      <img class="brand-lockup menu-lockup" src="brand-lockup.png" alt="BlockRealm Legacy — Mobile Voxel Survival">
+      <div class="splash" id="splashText">Procedural. Portable. Yours.</div>
+    </div>
+    <div class="menu-stack">
+      <button id="playMenuBtn" class="mc-btn primary">PLAY</button>
+      <button id="newWorldBtn" class="mc-btn">CREATE NEW WORLD</button>
+      <button id="settingsMenuBtn" class="mc-btn">SETTINGS</button>
+      <button id="aboutBtn" class="mc-btn muted">ABOUT THIS BUILD</button>
+    </div>
+    <div class="build-tag"><span class="verified-dot"></span> v4.1.0 FINAL · OFFLINE · WEBGL 1 SAFE</div>
+  </div>
+</div>
+
+<div id="worldsScreen" class="screen hidden dark-screen">
+  <div class="wide-window stone-frame">
+    <div class="window-head"><h2>WORLDS</h2><button class="icon-btn" data-close="worldsScreen">×</button></div>
+    <div id="worldList" class="world-list"></div>
+    <div class="bottom-actions"><button id="createFromList" class="mc-btn primary">CREATE WORLD</button><button class="mc-btn" data-close="worldsScreen">BACK</button></div>
+  </div>
+</div>
+
+<div id="createScreen" class="screen hidden dark-screen">
+  <div class="window stone-frame">
+    <div class="window-head"><h2>CREATE WORLD</h2><button class="icon-btn" data-close="createScreen">×</button></div>
+    <div class="form-grid">
+      <label>WORLD NAME<input id="worldName" maxlength="28" value="New Realm"></label>
+      <label>SEED<input id="worldSeed" maxlength="48" placeholder="Leave blank for a random seed"></label>
+      <label>MODE<select id="worldMode"><option value="survival">Survival</option><option value="creative">Creative</option></select></label>
+      <label>DIFFICULTY<select id="worldDifficulty"><option value="peaceful">Peaceful</option><option value="normal" selected>Normal</option><option value="hard">Hard</option></select></label>
+      <label class="toggle-row"><span>STARTING MAP</span><input id="startingMap" type="checkbox" checked></label>
+      <label class="toggle-row"><span>BONUS CHEST</span><input id="bonusChest" type="checkbox"></label>
+    </div>
+    <p class="hint">Every seed generates the same terrain, biomes, caves, ores and structures. Worlds stream outward as you explore.</p>
+    <div class="bottom-actions"><button id="createWorldConfirm" class="mc-btn primary">CREATE</button><button class="mc-btn" data-close="createScreen">CANCEL</button></div>
+  </div>
+</div>
+
+<div id="settingsScreen" class="screen hidden dark-screen">
+  <div class="window stone-frame scroll-window">
+    <div class="window-head"><h2>SETTINGS</h2><button class="icon-btn" data-close="settingsScreen">×</button></div>
+    <div class="settings-grid">
+      <label>VIEW DISTANCE <b id="viewDistanceValue"></b><input id="viewDistance" type="range" min="1" max="4" step="1"></label>
+      <label>RENDER SCALE <b id="renderScaleValue"></b><input id="renderScale" type="range" min="0.5" max="1" step="0.05"></label>
+      <label>LOOK SENSITIVITY <b id="sensitivityValue"></b><input id="sensitivity" type="range" min="0.45" max="2" step="0.05"></label>
+      <label>FOV <b id="fovValue"></b><input id="fov" type="range" min="58" max="90" step="1"></label>
+      <label class="toggle-row shader-master"><span>ENABLE SHADERS</span><input id="shadersEnabledToggle" type="checkbox"></label>
+      <label class="select-row">SHADER PRESET <b id="shaderProfileValue"></b><select id="shaderProfile"><option value="reimagined">Reimagined</option><option value="cinematic">Cinematic</option></select></label>
+      <label class="toggle-row"><span>DYNAMIC SKY</span><input id="dynamicSky" type="checkbox"></label>
+      <label class="toggle-row"><span>GODRAYS</span><input id="godraysToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>BLOOM & COLOR GRADE</span><input id="bloomToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>CLOUD SHADOWS</span><input id="cloudShadowsToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>REFLECTIVE WATER</span><input id="waterReflectionsToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>ADAPTIVE QUALITY</span><input id="adaptiveQualityToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>FOG</span><input id="fogToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>AMBIENT OCCLUSION</span><input id="aoToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>SOUND</span><input id="soundToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>VIBRATION</span><input id="vibrationToggle" type="checkbox"></label>
+      <label class="toggle-row"><span>SHOW FPS</span><input id="fpsToggle" type="checkbox"></label>
+      <label>CONTROL SIZE <b id="controlSizeValue"></b><input id="controlSize" type="range" min="0.75" max="1.25" step="0.05"></label>
+      <label>UI SCALE <b id="uiScaleValue"></b><input id="uiScale" type="range" min="0.8" max="1.2" step="0.05"></label>
+    </div>
+    <p id="shaderHelp" class="shader-help">Reimagined uses terrain-aware sun visibility, soft godrays, cloud shade and reflective water. Disable shaders for the fastest path.</p><div class="bottom-actions triple"><button id="safeModeBtn" class="mc-btn muted">SAFE MODE</button><button id="applySettings" class="mc-btn primary">APPLY</button><button class="mc-btn" data-close="settingsScreen">BACK</button></div>
+  </div>
+</div>
+
+<div id="aboutScreen" class="screen hidden dark-screen">
+  <div class="window stone-frame scroll-window text-window">
+    <div class="window-head"><h2>ABOUT</h2><button class="icon-btn" data-close="aboutScreen">×</button></div>
+    <p><strong>BlockRealm: Legacy</strong> is an original mobile-first voxel survival engine. It uses procedural pixel textures, streamed seed-based terrain and a WebGL 1 renderer designed for broad Android WebView compatibility, with scalable original shader profiles and explicit safe-mode diagnostics.</p>
+    <h3>Core loop</h3><p>Explore → gather → craft → mine deeper → smelt metals → survive the night → build a permanent realm.</p>
+    <h3>Controls</h3><p>Mobile: left joystick to move, swipe the right side to look, hold the pick button to mine or attack, tap the hand button to place or interact, and use the jump/sprint buttons. Desktop: WASD, mouse, Space, Shift, E, left/right click.</p>
+    <p class="hint">This is not affiliated with Mojang or Microsoft. All code, textures, sounds and names in this build are original or procedurally generated.</p>
+    <button class="mc-btn" data-close="aboutScreen">BACK</button>
+  </div>
+</div>
+
+<div id="loadingScreen" class="screen hidden">
+  <div class="loading-card">
+    <div class="brand-small">BLOCKREALM</div>
+    <div class="world-preview" id="worldPreview"></div>
+    <h2 id="loadingTitle">BUILDING TERRAIN</h2>
+    <div class="progress big"><i id="loadingFill"></i></div>
+    <p id="loadingDetail">Preparing seed…</p>
+    <p id="loadingTip" class="tip">Tip: Torches stop night creatures from spawning nearby.</p>
+  </div>
+</div>
+
+<div id="hud" class="hidden">
+  <div id="debugPanel" class="debug-panel hidden"></div>
+  <div class="top-left-hud">
+    <div id="dayBadge" class="day-badge">DAY 1 · 07:00</div>
+    <div id="biomeBadge" class="biome-badge">PLAINS</div>
+  </div>
+  <div class="top-right-hud">
+    <button id="inventoryBtn" class="hud-btn">▦</button>
+    <button id="shaderQuickBtn" class="hud-btn shader-quick" title="Cycle shaders">✦</button>
+    <button id="pauseBtn" class="hud-btn">Ⅱ</button>
+  </div>
+  <div id="crosshair" class="crosshair"><i></i><b></b></div>
+  <svg id="mineProgress" viewBox="0 0 44 44"><circle class="track" cx="22" cy="22" r="18"></circle><circle class="fill" cx="22" cy="22" r="18"></circle></svg>
+  <div id="damageFlash"></div>
+  <div id="underwaterOverlay"></div>
+  <div id="vignette"></div>
+  <div id="postBloom"></div>
+  <div id="shaderBadge" class="shader-badge">REIMAGINED</div>
+  <div id="targetLabel"></div>
+  <div id="heldItem"></div>
+  <div class="survival-hud">
+    <div class="hud-row"><div id="armorBar" class="armor-bar"></div><div id="oxygenBar" class="oxygen-bar"></div></div>
+    <div class="hud-row"><div id="healthBar" class="health-bar"></div><div id="hungerBar" class="hunger-bar"></div></div>
+    <div class="xp-track"><i id="xpFill"></i><b id="xpLevel">0</b></div>
+    <div id="hotbar" class="hotbar"></div>
+    <div id="selectedName" class="selected-name"></div>
+  </div>
+  <div id="mobileControls">
+    <div id="lookZone"></div>
+    <div id="joystick" class="joystick"><div id="joystickKnob"></div></div>
+    <button id="mineBtn" class="action-btn mine-btn"><span>⛏</span></button>
+    <button id="useBtn" class="action-btn use-btn"><span>✋</span></button>
+    <button id="jumpBtn" class="action-btn jump-btn"><span>↑</span></button>
+    <button id="sprintBtn" class="action-btn sprint-btn"><span>»</span></button>
+  </div>
+</div>
+
+<div id="inventoryOverlay" class="overlay hidden">
+  <div class="inventory-window stone-frame">
+    <div class="window-head"><h2 id="inventoryTitle">INVENTORY</h2><button id="closeInventory" class="icon-btn">×</button></div>
+    <div class="inventory-layout">
+      <aside class="player-pane">
+        <div class="player-paperdoll"><div class="player-head"></div><div class="player-body"></div><div class="player-arm l"></div><div class="player-arm r"></div><div class="player-leg l"></div><div class="player-leg r"></div></div>
+        <div class="equipment-grid" id="equipmentGrid"></div>
+        <div class="recipe-book"><button id="recipeBookBtn" class="mc-btn tiny">RECIPES</button><div id="recipeList" class="recipe-list hidden"></div></div>
+      </aside>
+      <section class="craft-pane">
+        <div class="craft-label" id="craftLabel">CRAFTING 2×2</div>
+        <div class="craft-area"><div id="craftGrid" class="craft-grid grid2"></div><div class="craft-arrow">➜</div><div id="craftOutput" class="slot output-slot"></div></div>
+        <div id="furnaceArea" class="furnace-area hidden">
+          <div class="furnace-col"><div id="furnaceInput" class="slot"></div><div class="furnace-flame"><i id="furnaceFuelFill"></i></div><div id="furnaceFuel" class="slot"></div></div>
+          <div class="furnace-progress"><i id="furnaceCookFill"></i></div><div id="furnaceOutput" class="slot output-slot"></div>
+        </div>
+        <div class="inventory-label">INVENTORY</div><div id="mainInventory" class="inventory-grid"></div>
+        <div class="inventory-label">HOTBAR</div><div id="inventoryHotbar" class="inventory-grid hot"></div>
+      </section>
+    </div>
+    <div class="inventory-footer"><button id="sortInventory" class="mc-btn tiny">SORT</button><button id="dropCursor" class="mc-btn tiny">DROP HELD STACK</button></div>
+  </div>
+  <div id="cursorStack" class="cursor-stack"></div>
+</div>
+
+<div id="pauseOverlay" class="overlay hidden">
+  <div class="pause-window stone-frame">
+    <h2>GAME PAUSED</h2>
+    <button id="resumeBtn" class="mc-btn primary">BACK TO GAME</button>
+    <button id="pauseSettingsBtn" class="mc-btn">SETTINGS</button>
+    <button id="saveBtn" class="mc-btn">SAVE WORLD</button>
+    <button id="exportBtn" class="mc-btn">EXPORT WORLD</button>
+    <button id="quitBtn" class="mc-btn danger">SAVE & QUIT</button>
+  </div>
+</div>
+
+<div id="rotateBlocker" aria-hidden="true"><div class="rotate-phone">↻</div><strong>ROTATE TO LANDSCAPE</strong><span>BlockRealm is designed for two-thumb play.</span></div>
+<div id="toast"></div>
+<div id="fatalOverlay" class="screen hidden fatal-screen">
+  <div class="window stone-frame text-window"><h2>THE GAME STOPPED</h2><p id="fatalMessage"></p><pre id="fatalStack"></pre><div class="bottom-actions"><button id="fatalSafe" class="mc-btn">RESTART SAFE MODE</button><button id="fatalReload" class="mc-btn primary">RELOAD GAME</button></div></div>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>

@@ -1,9 +1,22 @@
 # BlockRealm: Legacy
 
-An open-source, mobile-first voxel survival sandbox with deterministic procedural world generation, survival progression, crafting, configurable shaders, offline PWA support, and an Android launcher.
+> Open-source mobile-first voxel survival sandbox with procedural worlds, crafting, configurable shaders, offline PWA support, and an Android launcher.
+
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/platform-Web%20%7C%20PWA%20%7C%20Android-4c8bf5)](#platforms)
+[![Rendering](https://img.shields.io/badge/rendering-WebGL-7a5af8)](#graphics)
+[![Status](https://img.shields.io/badge/status-Experimental-orange)](#project-status)
+
+![BlockRealm Legacy menu](docs/menu-preview.png)
 
 > [!IMPORTANT]
 > BlockRealm is an original voxel sandbox project. It is not affiliated with, endorsed by, or distributed by Mojang Studios or Microsoft. Minecraft is a trademark of Microsoft.
+
+## What is BlockRealm?
+
+BlockRealm is an open-source voxel game built with JavaScript and WebGL. It combines deterministic procedural terrain, survival progression, crafting, configurable shaders, offline-first PWA support, and an Android launcher in a mobile-focused package.
+
+It is designed as a browser-based survival sandbox and procedurally generated block world that can run on phones, desktops, and compatible Android WebViews.
 
 ## Features
 
@@ -15,6 +28,16 @@ An open-source, mobile-first voxel survival sandbox with deterministic procedura
 - Configurable shader modes, including compatibility, reimagined, and cinematic presets
 - Offline standalone HTML and installable PWA builds
 - Android Studio launcher project
+- Original open-source voxel survival game foundation
+
+## Platforms
+
+| Platform | Status | Notes |
+|---|---|---|
+| Modern desktop browsers | Supported | WebGL-capable browser required |
+| Android mobile browsers | Supported | Landscape orientation recommended |
+| Installable PWA | Supported | Requires HTTPS or localhost |
+| Android APK | Experimental | Rebuild and physical-device testing recommended |
 
 ## Project status
 
@@ -24,7 +47,7 @@ The browser/PWA build has been confirmed to render on a Realme 13 Pro+ 5G. The e
 
 - `web/` — browser and PWA game
 - `android/` — Android Studio launcher project
-- `docs/` — screenshots, release notes, and QA notes
+- `docs/` — screenshots, release notes, QA notes, FAQ, architecture, and roadmap
 - `releases/` — experimental APK artifact
 
 ## Run the web build
@@ -39,6 +62,29 @@ Open `http://localhost:8080`.
 ## Android build
 
 Open `android/` in Android Studio, allow Gradle sync to complete, and build a debug APK. Never commit signing keys, keystores, passwords, or `local.properties`.
+
+## Graphics
+
+BlockRealm supports multiple graphics modes so users can balance quality and performance:
+
+- Compatibility mode
+- Reimagined shader mode
+- Cinematic shader mode
+- Shader-disabled mode
+
+The renderer includes directional lighting, fog, animated water, day/night transitions, torch lighting, and optional atmosphere effects.
+
+## Documentation
+
+- [FAQ](docs/FAQ.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Contributing](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
+
+## Search and discovery terms
+
+BlockRealm is an open-source voxel game, browser-based survival sandbox, mobile WebGL game, procedurally generated block world, offline Minecraft-inspired sandbox, and Android voxel game.
 
 ## License
 

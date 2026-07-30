@@ -93,18 +93,18 @@ const chunks=new Map(),chunkMeshes=new Map(),dirtyChunks=new Set(),mods=new Map(
 const keys={},touchState={moveX:0,moveY:0,lookId:null,lookX:0,lookY:0,mine:false,use:false,jump:false,sprint:false};
 
 // ---------- Procedural world ----------
-const ckey=(cx,cz)=>cx+','+cz, bkey=(x,y,z)=>x+','+y+','+z, idx=(x,y,z)=>(y*CH+z)*CH+x;
+const ckey=(cx,cz)=>cx+','+cz, bkey=(x,y,z)=>x+','+y+','+z, idx=(x,y,z)=>((y*16+z)<<4)+x;
 function biomeAt(x,z){const temp=fbm(x,z,220,901,3),moist=fbm(x,z,180,1301,3),ridge=fbm(x,z,150,1777,4);if(ridge>.72)return'mountains';if(temp>.67&&moist<.48)return'desert';if(temp<.35)return'taiga';if(moist>.62)return'forest';return'plains'}
 function terrainInfo(x,z){const biome=biomeAt(x,z),continent=fbm(x,z,420,11,4),detail=fbm(x,z,70,29,4),ridge=Math.abs(fbm(x,z,150,41,4)*2-1);let height=13+continent*9+detail*7;if(biome==='mountains')height+=Math.pow(1-ridge,2)*19+5;if(biome==='desert')height=14+continent*6+detail*4;if(biome==='taiga')height+=2;height=Math.floor(clamp(height,5,H-9));return{biome,height,temp:fbm(x,z,220,901,3),moist:fbm(x,z,180,1301,3)}}
 function isCave(x,y,z,height){if(y<3||y>height-4)return false;const n=(hash3(Math.floor(x/2),Math.floor(y/2),Math.floor(z/2),330)+hash3(Math.floor(x/5),Math.floor(y/4),Math.floor(z/5),331)*.65)/1.65;const tunnel=Math.sin(x*.15+hash2(Math.floor(z/20),0,333)*6)+Math.sin(z*.13)+Math.sin(y*.31);return n>.83||tunnel>2.55}
 function baseColumnBlock(x,y,z,t){if(y<0||y>=H)return B.AIR;if(y===0)return B.STONE;if(y>t.height)return y<=SEA?B.WATER:B.AIR;if(isCave(x,y,z,t.height))return B.AIR;if(y<t.height-4){const ore=hash3(x,y,z,777);if(y<31&&ore>.986)return B.IRON_ORE;if(y<39&&ore>.975)return B.COPPER_ORE;if(ore>.947)return B.COAL_ORE;return B.STONE}if(y<t.height){return t.biome==='desert'?B.SAND:(t.biome==='mountains'&&y>31?B.STONE:B.DIRT)}if(t.biome==='desert')return B.SAND;if(t.biome==='mountains'&&y>31)return B.SNOW;return B.GRASS}
-function setFeature(a,cx,cz,x,y,z,b){const lx=x-cx*CH,lz=z-cz*CH;if(lx>=0&&lx<CH&&lz>=0&&lz<CH&&y>=0&&y<H)a[idx(lx,y,lz)]=b}
+function setFeature(a,cx,cz,x,y,z,b){const lx=x-cx*CH,lz=z-cz*CH;if(lx>=0&&lx<CH&&lz>=0&&lz<CH&&y>=0&&y<H)a[((y*16+lz)<<4)+lx]=b}
 function placeOak(a,cx,cz,x,y,z,forest=false){const h=4+(hash2(x,z,451)*3|0);for(let i=0;i<h;i++)setFeature(a,cx,cz,x,y+i,z,B.OAK_LOG);for(let dy=h-2;dy<=h+1;dy++){const r=dy===h+1?1:2;for(let dx=-r;dx<=r;dx++)for(let dz=-r;dz<=r;dz++)if(Math.abs(dx)+Math.abs(dz)<=r*2&&hash3(x+dx,dy,z+dz,452)>.08)setFeature(a,cx,cz,x+dx,y+dy,z+dz,B.OAK_LEAVES)}if(forest&&hash2(x,z,458)>.82)setFeature(a,cx,cz,x+1,y,z,B.RED_FLOWER)}
 function placeSpruce(a,cx,cz,x,y,z){const h=6+(hash2(x,z,462)*3|0);for(let i=0;i<h;i++)setFeature(a,cx,cz,x,y+i,z,B.SPRUCE_LOG);for(let dy=2;dy<h+1;dy++){const fromTop=h-dy,r=fromTop<2?1:(dy%2?2:1);for(let dx=-r;dx<=r;dx++)for(let dz=-r;dz<=r;dz++)if(Math.abs(dx)+Math.abs(dz)<=r+1)setFeature(a,cx,cz,x+dx,y+dy,z+dz,B.SPRUCE_LEAVES)}}
 function decorateChunk(a,cx,cz){const x0=cx*CH,z0=cz*CH;for(let x=x0-3;x<x0+CH+3;x++)for(let z=z0-3;z<z0+CH+3;z++){const t=terrainInfo(x,z);if(t.height<=SEA+1)continue;const r=hash2(x,z,500);if(t.biome==='forest'&&r>.955&&hash2(x,z,501)>.45)placeOak(a,cx,cz,x,t.height+1,z,true);else if(t.biome==='plains'&&r>.986)placeOak(a,cx,cz,x,t.height+1,z,false);else if(t.biome==='taiga'&&r>.968)placeSpruce(a,cx,cz,x,t.height+1,z);else if(t.biome==='desert'&&r>.984){const h=2+(hash2(x,z,503)*3|0);for(let i=0;i<h;i++)setFeature(a,cx,cz,x,t.height+1+i,z,B.CACTUS)}else if(t.biome==='plains'&&r>.965){setFeature(a,cx,cz,x,t.height+1,z,hash2(x,z,504)>.5?B.RED_FLOWER:B.YELLOW_FLOWER)}}}
-function generateChunk(cx,cz){const k=ckey(cx,cz);if(chunks.has(k))return chunks.get(k);const a=new Uint8Array(CH*H*CH),x0=cx*CH,z0=cz*CH;for(let lx=0;lx<CH;lx++)for(let lz=0;lz<CH;lz++){const gx=x0+lx,gz=z0+lz,t=terrainInfo(gx,gz);for(let y=0;y<H;y++)a[idx(lx,y,lz)]=baseColumnBlock(gx,y,gz,t)}decorateChunk(a,cx,cz);for(const[k2,v]of mods){const p=k2.split(',').map(Number),mx=p[0],my=p[1],mz=p[2];if(Math.floor(mx/CH)===cx&&Math.floor(mz/CH)===cz)a[idx(mod(mx,CH),my,mod(mz,CH))]=v}chunks.set(k,a);return a}
-function getBlock(x,y,z){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(y<0)return B.STONE;if(y>=H)return B.AIR;const mk=bkey(x,y,z);if(mods.has(mk))return mods.get(mk);const cx=Math.floor(x/CH),cz=Math.floor(z/CH),a=generateChunk(cx,cz);return a[idx(mod(x,CH),y,mod(z,CH))]}
-function setBlock(x,y,z,b,record=true){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(y<=0||y>=H)return false;const cx=Math.floor(x/CH),cz=Math.floor(z/CH),a=generateChunk(cx,cz);a[idx(mod(x,CH),y,mod(z,CH))]=b;if(record)mods.set(bkey(x,y,z),b);markChunkDirty(cx,cz);if(mod(x,CH)===0)markChunkDirty(cx-1,cz);if(mod(x,CH)===CH-1)markChunkDirty(cx+1,cz);if(mod(z,CH)===0)markChunkDirty(cx,cz-1);if(mod(z,CH)===CH-1)markChunkDirty(cx,cz+1);return true}
+function generateChunk(cx,cz){const k=ckey(cx,cz);if(chunks.has(k))return chunks.get(k);const a=new Uint8Array(CH*H*CH),x0=cx*CH,z0=cz*CH;for(let lx=0;lx<CH;lx++)for(let lz=0;lz<CH;lz++){const gx=x0+lx,gz=z0+lz,t=terrainInfo(gx,gz);for(let y=0;y<H;y++)a[((y*16+lz)<<4)+lx]=baseColumnBlock(gx,y,gz,t)}decorateChunk(a,cx,cz);for(const[k2,v]of mods){const p=k2.split(',').map(Number),mx=p[0],my=p[1],mz=p[2];if((mx>>4)===cx&&(mz>>4)===cz)a[((my*16+(mz&15))<<4)+(mx&15)]=v}chunks.set(k,a);return a}
+function getBlock(x,y,z){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(y<0)return B.STONE;if(y>=H)return B.AIR;const mk=bkey(x,y,z);if(mods.has(mk))return mods.get(mk);const cx=x>>4,cz=z>>4,a=generateChunk(cx,cz);return a[((y*16+(z&15))<<4)+(x&15)]}
+function setBlock(x,y,z,b,record=true){x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(y<=0||y>=H)return false;const cx=x>>4,cz=z>>4,a=generateChunk(cx,cz);a[((y*16+(z&15))<<4)+(x&15)]=b;if(record)mods.set(bkey(x,y,z),b);markChunkDirty(cx,cz);const lx=x&15;const lz=z&15;if(lx===0)markChunkDirty(cx-1,cz);if(lx===15)markChunkDirty(cx+1,cz);if(lz===0)markChunkDirty(cx,cz-1);if(lz===15)markChunkDirty(cx,cz+1);return true}
 function markChunkDirty(cx,cz){const k=ckey(cx,cz);dirtyChunks.add(k);if(!meshQueue.includes(k))meshQueue.push(k)}
 function surfaceY(x,z){const t=terrainInfo(x,z);for(let y=Math.min(H-1,t.height+10);y>0;y--){const b=getBlock(x,y,z);if(BLOCKS[b]?.solid)return y}return t.height}
 function solidAt(x,y,z){const b=getBlock(x,y,z);return !!BLOCKS[b]?.solid}
@@ -148,7 +148,61 @@ function addQuad(arr,x,y,z,face,tile,light){for(const q of TRI){const p=face.v[q
 function addCross(arr,x,y,z,tile,light=.9){const quads=[[[.12,0,.12],[.12,1,.12],[.88,1,.88],[.88,0,.88]],[[.88,0,.12],[.88,1,.12],[.12,1,.88],[.12,0,.88]]];for(let qi=0;qi<quads.length;qi++){const quad=quads[qi],n=qi?[.7,0,.7]:[-.7,0,.7];for(const q of TRI){const p=quad[q],uv=uvFor(tile,q);arr.push(x+p[0],y+p[1],z+p[2],uv[0],uv[1],light,1,n[0],n[1],n[2])}}}
 function createMesh(data){if(!data.length)return null;const b=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(data),gl.STATIC_DRAW);return{buffer:b,count:data.length/10}}
 function destroyMesh(m){if(m?.buffer)gl.deleteBuffer(m.buffer)}
-function meshChunk(cx,cz){const opaque=[],water=[],near=new Map();for(let dz=-1;dz<=1;dz++)for(let dx=-1;dx<=1;dx++){const nx=cx+dx,nz=cz+dz;near.set(ckey(nx,nz),generateChunk(nx,nz))}const localGet=(x,y,z)=>{x=Math.floor(x);y=Math.floor(y);z=Math.floor(z);if(y<0)return B.STONE;if(y>=H)return B.AIR;const ncx=Math.floor(x/CH),ncz=Math.floor(z/CH),a=near.get(ckey(ncx,ncz))||generateChunk(ncx,ncz);return a[idx(mod(x,CH),y,mod(z,CH))]};meshLookup=localGet;const x0=cx*CH,z0=cz*CH;try{for(let lx=0;lx<CH;lx++)for(let y=0;y<H;y++)for(let lz=0;lz<CH;lz++){const x=x0+lx,z=z0+lz,b=localGet(x,y,z);if(!b)continue;const d=BLOCKS[b];if(!d)continue;if(!d.solid&&(d.cutout||b===B.TORCH||b===B.RED_FLOWER||b===B.YELLOW_FLOWER)){addCross(opaque,x,y,z,d.tile,.9);continue}for(const face of FACES){const nb=localGet(x+face.n[0],y+face.n[1],z+face.n[2]),nd=BLOCKS[nb];let visible=false;if(d.water)visible=!nd?.water&&(!nd?.solid||nd.transparent);else if(d.transparent)visible=nb!==b&&(!nd?.solid||nd.transparent||nd.water);else visible=!nd?.solid||nd.transparent||nd.water;if(!visible)continue;addQuad(d.water?water:opaque,x,y,z,face,faceTile(b,face),face.l)}}}finally{meshLookup=null}const old=chunkMeshes.get(ckey(cx,cz));if(old){destroyMesh(old.opaque);destroyMesh(old.water)}const m={opaque:createMesh(opaque),water:createMesh(water),cx,cz};chunkMeshes.set(ckey(cx,cz),m);dirtyChunks.delete(ckey(cx,cz));return m}
+function meshChunk(cx,cz){
+  const opaque=[],water=[];
+  const chunks3x3 = new Array(9);
+  for(let dz=-1;dz<=1;dz++) {
+    for(let dx=-1;dx<=1;dx++){
+      chunks3x3[(dx+1)*3 + (dz+1)] = generateChunk(cx+dx, cz+dz);
+    }
+  }
+  const centerChunk = chunks3x3[4]; // (0+1)*3 + (0+1) = 4
+  const localGet=(x,y,z)=>{
+    x = x | 0; y = y | 0; z = z | 0;
+    if(y<0)return B.STONE;
+    if(y>=H)return B.AIR;
+    const ncx=x>>4,ncz=z>>4;
+    const dx=ncx-cx+1,dz=ncz-cz+1;
+    const a=(dx>=0&&dx<3&&dz>=0&&dz<3)?chunks3x3[dx*3+dz]:generateChunk(ncx,ncz);
+    return a[((y*16+(z&15))<<4)+(x&15)];
+  };
+  meshLookup=localGet;
+  const x0=cx*CH,z0=cz*CH;
+  try{
+    for(let lx=0;lx<CH;lx++) {
+      for(let y=0;y<H;y++) {
+        for(let lz=0;lz<CH;lz++){
+          const x=x0+lx,z=z0+lz;
+          const b=centerChunk[((y*16+lz)<<4)+lx];
+          if(!b)continue;
+          const d=BLOCKS[b];
+          if(!d)continue;
+          if(!d.solid&&(d.cutout||b===B.TORCH||b===B.RED_FLOWER||b===B.YELLOW_FLOWER)){
+            addCross(opaque,x,y,z,d.tile,.9);
+            continue;
+          }
+          for(const face of FACES){
+            const nb=localGet(x+face.n[0],y+face.n[1],z+face.n[2]),nd=BLOCKS[nb];
+            let visible=false;
+            if(d.water)visible=!nd?.water&&(!nd?.solid||nd.transparent);
+            else if(d.transparent)visible=nb!==b&&(!nd?.solid||nd.transparent||nd.water);
+            else visible=!nd?.solid||nd.transparent||nd.water;
+            if(!visible)continue;
+            addQuad(d.water?water:opaque,x,y,z,face,faceTile(b,face),face.l);
+          }
+        }
+      }
+    }
+  }finally{
+    meshLookup=null;
+  }
+  const old=chunkMeshes.get(ckey(cx,cz));
+  if(old){destroyMesh(old.opaque);destroyMesh(old.water)}
+  const m={opaque:createMesh(opaque),water:createMesh(water),cx,cz};
+  chunkMeshes.set(ckey(cx,cz),m);
+  dirtyChunks.delete(ckey(cx,cz));
+  return m;
+}
 function bindWorldAttributes(p,m){gl.bindBuffer(gl.ARRAY_BUFFER,m.buffer);const stride=40;const aPos=gl.getAttribLocation(p,'aPos'),aUV=gl.getAttribLocation(p,'aUV'),aLight=gl.getAttribLocation(p,'aLight'),aAO=gl.getAttribLocation(p,'aAO'),aNormal=gl.getAttribLocation(p,'aNormal');gl.enableVertexAttribArray(aPos);gl.vertexAttribPointer(aPos,3,gl.FLOAT,false,stride,0);gl.enableVertexAttribArray(aUV);gl.vertexAttribPointer(aUV,2,gl.FLOAT,false,stride,12);gl.enableVertexAttribArray(aLight);gl.vertexAttribPointer(aLight,1,gl.FLOAT,false,stride,20);gl.enableVertexAttribArray(aAO);gl.vertexAttribPointer(aAO,1,gl.FLOAT,false,stride,24);gl.enableVertexAttribArray(aNormal);gl.vertexAttribPointer(aNormal,3,gl.FLOAT,false,stride,28)}
 function uni(p,n){return gl.getUniformLocation(p,n)}
 function shaderModeNumber(){const p=effectiveShaderProfile();return p==='cinematic'?2:p==='reimagined'?1:0}function drawWorldMesh(m,p,sky,torch,water=false){if(!m)return;gl.useProgram(p);bindWorldAttributes(p,m);const time=performance.now()/1000,mode=shaderModeNumber();gl.uniformMatrix4fv(uni(p,'uVP'),false,vp);gl.uniform3f(uni(p,'uCamera'),player.x,player.y+player.eye,player.z);gl.uniform3f(uni(p,'uTorch'),torch[0],torch[1],torch[2]);gl.uniform3f(uni(p,'uSunDir'),sky.dir[0],sky.dir[1],sky.dir[2]);gl.uniform1f(uni(p,'uTorchOn'),torch[3]);gl.uniform1f(uni(p,'uSun'),sky.sun);gl.uniform1f(uni(p,'uTime'),time);gl.uniform1f(uni(p,'uShaderMode'),mode);gl.uniform1f(uni(p,'uCloudShadow'),mode&&settings.cloudShadows?1:0);gl.uniform1f(uni(p,'uWaterReflect'),mode&&settings.waterReflections?1:0);gl.uniform3f(uni(p,'uFogColor'),sky.r,sky.g,sky.b);const far=(settings.viewDistance+.85)*CH;gl.uniform1f(uni(p,'uFogNear'),settings.fog?far*.48:9999);gl.uniform1f(uni(p,'uFogFar'),settings.fog?far:10000);gl.uniform1f(uni(p,'uNightBlue'),1-sky.sun);if(!water){gl.uniform1f(uni(p,'uAlphaCut'),.18);gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,atlas.texture);gl.uniform1i(uni(p,'uAtlas'),0)}else{gl.activeTexture(gl.TEXTURE0);gl.bindTexture(gl.TEXTURE_2D,atlas.texture);gl.uniform1i(uni(p,'uAtlas'),0)}gl.drawArrays(gl.TRIANGLES,0,m.count)}

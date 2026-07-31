@@ -79,6 +79,8 @@ public final class MainActivity extends Activity {
         settings.setDatabaseEnabled(true);
         settings.setAllowFileAccess(false);
         settings.setAllowContentAccess(false);
+        settings.setAllowFileAccessFromFileURLs(false);
+        settings.setAllowUniversalAccessFromFileURLs(false);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setBuiltInZoomControls(false);
         settings.setDisplayZoomControls(false);
@@ -98,6 +100,15 @@ public final class MainActivity extends Activity {
         });
 
         webView.setWebViewClient(new WebViewClientCompat() {
+            @Override
+            public boolean shouldOverrideUrlLoading(@NonNull WebView view, @NonNull WebResourceRequest request) {
+                String url = request.getUrl().toString();
+                if (url.startsWith("https://appassets.androidplatform.net/")) {
+                    return false; // Allow local asset loading
+                }
+                return true; // Block/ignore other loads to secure the WebView container
+            }
+
             @Override
             public WebResourceResponse shouldInterceptRequest(
                     @NonNull WebView view,

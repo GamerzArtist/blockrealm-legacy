@@ -74,3 +74,12 @@ body[data-shader-profile="reimagined"] #godrays,body[data-shader-profile="cinema
 #rotateBlocker{display:none;position:fixed;inset:0;z-index:250;background:radial-gradient(circle,#243528,#090d0a 72%);align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:10px;padding:30px;color:#fff}.rotate-phone{font-size:56px;animation:rotateHint 1.8s ease-in-out infinite}.rotate-phone+strong{font-size:18px;letter-spacing:.08em}.rotate-phone~span{font-size:10px;color:#bdd0b8}@keyframes rotateHint{50%{transform:rotate(90deg)}}
 @media(orientation:portrait) and (pointer:coarse){#rotateBlocker{display:flex}body:after{display:none!important}}
 @media(max-height:540px) and (orientation:landscape){.title-card{width:min(88vw,760px);padding:14px 20px}.brand-lockup{width:min(62vw,480px);max-height:100px}.main-brand{margin-bottom:10px}.menu-stack{grid-template-columns:1fr 1fr;gap:8px}.menu-stack .primary{grid-column:1/-1}.menu-stack .mc-btn{min-height:44px}.build-tag{margin-top:7px}.splash{font-size:9px}}
+
+/* Focus visible indicators for better keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 3px solid #70d05b !important;
+  outline-offset: 2px !important;
+}

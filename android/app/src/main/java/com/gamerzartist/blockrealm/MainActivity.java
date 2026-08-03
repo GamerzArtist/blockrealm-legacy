@@ -99,6 +99,27 @@ public final class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClientCompat() {
             @Override
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView view,
+                    @NonNull WebResourceRequest request
+            ) {
+                String url = request.getUrl().toString();
+                if (url.startsWith("https://appassets.androidplatform.net/") || "about:blank".equals(url)) {
+                    return false;
+                }
+                try {
+                    android.content.Intent intent = new android.content.Intent(
+                            android.content.Intent.ACTION_VIEW,
+                            request.getUrl()
+                    );
+                    view.getContext().startActivity(intent);
+                } catch (Exception e) {
+                    Log.e(TAG, "Failed to launch external browser for URL: " + url, e);
+                }
+                return true;
+            }
+
+            @Override
             public WebResourceResponse shouldInterceptRequest(
                     @NonNull WebView view,
                     @NonNull WebResourceRequest request

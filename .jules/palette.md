@@ -1,0 +1,3 @@
+## 2026-08-05 - Icon-Only Button Accessibility in Mobile Web Voxel Sandbox
+**Learning:** Icon-only control elements (e.g. "×" for closing panels, "▦" for inventory, and emojis for touch controls like "⛏") are visual-first and lack native descriptive text. This makes them completely inaccessible to screen reader users (ARIA) and harms overall mobile/web UX when assistive technologies are enabled.
+**Action:** Always provide explicit, concise, and descriptive `aria-label` attributes on any button that does not contain human-readable text labels. Additionally, ensure native launcher assets (such as duplicated assets folders) are manually synchronized to maintain consistency.

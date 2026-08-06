@@ -94,8 +94,31 @@ const keys={},touchState={moveX:0,moveY:0,lookId:null,lookX:0,lookY:0,mine:false
 
 // ---------- Procedural world ----------
 const ckey=(cx,cz)=>cx+','+cz, bkey=(x,y,z)=>x+','+y+','+z, idx=(x,y,z)=>(y*CH+z)*CH+x;
-function biomeAt(x,z){const temp=fbm(x,z,220,901,3),moist=fbm(x,z,180,1301,3),ridge=fbm(x,z,150,1777,4);if(ridge>.72)return'mountains';if(temp>.67&&moist<.48)return'desert';if(temp<.35)return'taiga';if(moist>.62)return'forest';return'plains'}
-function terrainInfo(x,z){const biome=biomeAt(x,z),continent=fbm(x,z,420,11,4),detail=fbm(x,z,70,29,4),ridge=Math.abs(fbm(x,z,150,41,4)*2-1);let height=13+continent*9+detail*7;if(biome==='mountains')height+=Math.pow(1-ridge,2)*19+5;if(biome==='desert')height=14+continent*6+detail*4;if(biome==='taiga')height+=2;height=Math.floor(clamp(height,5,H-9));return{biome,height,temp:fbm(x,z,220,901,3),moist:fbm(x,z,180,1301,3)}}
+const terrainCache = new Map();
+let cacheSeed = null;
+function biomeAt(x,z){return terrainInfo(x,z).biome}
+function terrainInfo(x,z){
+  if(cacheSeed!==worldSeed){terrainCache.clear();cacheSeed=worldSeed}
+  const key=x+','+z;
+  const cached=terrainCache.get(key);
+  if(cached!==undefined)return cached;
+  const temp=fbm(x,z,220,901,3),moist=fbm(x,z,180,1301,3),ridgeBiome=fbm(x,z,150,1777,4);
+  let biome='plains';
+  if(ridgeBiome>.72)biome='mountains';
+  else if(temp>.67&&moist<.48)biome='desert';
+  else if(temp<.35)biome='taiga';
+  else if(moist>.62)biome='forest';
+  const continent=fbm(x,z,420,11,4),detail=fbm(x,z,70,29,4),ridgeTerrain=Math.abs(fbm(x,z,150,41,4)*2-1);
+  let height=13+continent*9+detail*7;
+  if(biome==='mountains')height+=Math.pow(1-ridgeTerrain,2)*19+5;
+  if(biome==='desert')height=14+continent*6+detail*4;
+  if(biome==='taiga')height+=2;
+  height=Math.floor(clamp(height,5,H-9));
+  const result={biome,height,temp,moist};
+  if(terrainCache.size>=4096)terrainCache.clear();
+  terrainCache.set(key,result);
+  return result;
+}
 function isCave(x,y,z,height){if(y<3||y>height-4)return false;const n=(hash3(Math.floor(x/2),Math.floor(y/2),Math.floor(z/2),330)+hash3(Math.floor(x/5),Math.floor(y/4),Math.floor(z/5),331)*.65)/1.65;const tunnel=Math.sin(x*.15+hash2(Math.floor(z/20),0,333)*6)+Math.sin(z*.13)+Math.sin(y*.31);return n>.83||tunnel>2.55}
 function baseColumnBlock(x,y,z,t){if(y<0||y>=H)return B.AIR;if(y===0)return B.STONE;if(y>t.height)return y<=SEA?B.WATER:B.AIR;if(isCave(x,y,z,t.height))return B.AIR;if(y<t.height-4){const ore=hash3(x,y,z,777);if(y<31&&ore>.986)return B.IRON_ORE;if(y<39&&ore>.975)return B.COPPER_ORE;if(ore>.947)return B.COAL_ORE;return B.STONE}if(y<t.height){return t.biome==='desert'?B.SAND:(t.biome==='mountains'&&y>31?B.STONE:B.DIRT)}if(t.biome==='desert')return B.SAND;if(t.biome==='mountains'&&y>31)return B.SNOW;return B.GRASS}
 function setFeature(a,cx,cz,x,y,z,b){const lx=x-cx*CH,lz=z-cz*CH;if(lx>=0&&lx<CH&&lz>=0&&lz<CH&&y>=0&&y<H)a[idx(lx,y,lz)]=b}
@@ -308,7 +331,22 @@ window.addEventListener('pagehide',()=>saveWorld(true));document.addEventListene
 let settingsFromPause=false;$('#pauseSettingsBtn').onclick=()=>{settingsFromPause=true;closeScreen($('#pauseOverlay'));showSettings()};const settingsClose=$('[data-close="settingsScreen"]');settingsClose.onclick=()=>{closeScreen(dom.settings);if(settingsFromPause&&game.running){openScreen($('#pauseOverlay'));settingsFromPause=false}};const oldApply=$('#applySettings').onclick;$('#applySettings').onclick=()=>{oldApply();if(settingsFromPause&&game.running){openScreen($('#pauseOverlay'));settingsFromPause=false}};
 window.BlockRealmAndroidPause=()=>{if(game.running){saveWorld(true);if(!game.paused)togglePause(true)}return true};
 window.BlockRealmAndroidBack=()=>{const inv=$('#inventoryOverlay'),pause=$('#pauseOverlay');if(!inv.classList.contains('hidden')){closeInventory();return true}if(!pause.classList.contains('hidden')){togglePause(false);return true}for(const panel of [dom.settings,dom.create,dom.worlds,$('#aboutScreen')]){if(panel&&!panel.classList.contains('hidden')){closeScreen(panel);openScreen(dom.main);return true}}if(game.running){togglePause(true);return true}return false};
-window.BlockRealmDebug={version:APP_VERSION,setScene:o=>{if(o.day!=null)game.day=mod(+o.day,1);if(o.yaw!=null)player.yaw=+o.yaw;if(o.pitch!=null)player.pitch=clamp(+o.pitch,-1.52,1.52);if(o.profile){settings.shadersEnabled=o.profile!=='off';if(o.profile!=='off')settings.shaderProfile=o.profile;applyCssSettings()}return{day:game.day,yaw:player.yaw,pitch:player.pitch,sky:skyState()}},faceSun:()=>{const d=skyState().dir;player.yaw=Math.atan2(-d[0],-d[2]);player.pitch=Math.asin(clamp(d[1],-1,1));return{yaw:player.yaw,pitch:player.pitch,dir:d}},getState:()=>({running:game.running,paused:game.paused,world:currentWorld?.name||null,seed:currentWorld?.seed||null,player:{x:player.x,y:player.y,z:player.z,health:player.health,hunger:player.hunger},chunks:chunkMeshes.size,mobs:mobs.length,drops:drops.length,renderer:gl?gl.getParameter(gl.VERSION):null,glInfo,shaderProfile:effectiveShaderProfile(),safeMode}),selfTest:()=>{const results=[];const test=(name,fn)=>{try{results.push({name,pass:!!fn()})}catch(e){results.push({name,pass:false,error:String(e)})}};test('Block solidity defaults',()=>BLOCKS[B.STONE].solid&&BLOCKS[B.GLASS].solid&&!BLOCKS[B.WATER].solid);const oldSeed=worldSeed;worldSeed=12345;test('Deterministic terrain',()=>JSON.stringify(terrainInfo(91,-37))===JSON.stringify(terrainInfo(91,-37)));worldSeed=oldSeed;const old=craftSlots.map(cloneStack),oldMode=inventoryMode;craftSlots.fill(null);inventoryMode='hand';craftSlots[0]=stack(B.OAK_LOG,1);test('Hand recipe log to planks',()=>currentRecipe()?.out===B.OAK_PLANKS);for(let i=0;i<9;i++)craftSlots[i]=old[i];inventoryMode=oldMode;test('Nine-slot hotbar',()=>inventory.slice(0,9).length===9);test('View-relative forward movement',()=>{const y=player.yaw;player.yaw=Math.PI/2;const sy=Math.sin(player.yaw),cy=Math.cos(player.yaw),tx=-sy,tz=-cy;player.yaw=y;return tx<-.99&&Math.abs(tz)<.01});test('Shader controls available',()=>!!$('#shadersEnabledToggle')&&['reimagined','cinematic'].includes(settings.shaderProfile));test('WebGL compatibility path',()=>!!gl);return results}};
+window.BlockRealmDebug={version:APP_VERSION,setScene:o=>{if(o.day!=null)game.day=mod(+o.day,1);if(o.yaw!=null)player.yaw=+o.yaw;if(o.pitch!=null)player.pitch=clamp(+o.pitch,-1.52,1.52);if(o.profile){settings.shadersEnabled=o.profile!=='off';if(o.profile!=='off')settings.shaderProfile=o.profile;applyCssSettings()}return{day:game.day,yaw:player.yaw,pitch:player.pitch,sky:skyState()}},faceSun:()=>{const d=skyState().dir;player.yaw=Math.atan2(-d[0],-d[2]);player.pitch=Math.asin(clamp(d[1],-1,1));return{yaw:player.yaw,pitch:player.pitch,dir:d}},getState:()=>({running:game.running,paused:game.paused,world:currentWorld?.name||null,seed:currentWorld?.seed||null,player:{x:player.x,y:player.y,z:player.z,health:player.health,hunger:player.hunger},chunks:chunkMeshes.size,mobs:mobs.length,drops:drops.length,renderer:gl?gl.getParameter(gl.VERSION):null,glInfo,shaderProfile:effectiveShaderProfile(),safeMode}),selfTest:()=>{const results=[];const test=(name,fn)=>{try{results.push({name,pass:!!fn()})}catch(e){results.push({name,pass:false,error:String(e)})}};test('Block solidity defaults',()=>BLOCKS[B.STONE].solid&&BLOCKS[B.GLASS].solid&&!BLOCKS[B.WATER].solid);const oldSeed=worldSeed;worldSeed=12345;test('Deterministic terrain',()=>JSON.stringify(terrainInfo(91,-37))===JSON.stringify(terrainInfo(91,-37)));worldSeed=oldSeed;const old=craftSlots.map(cloneStack),oldMode=inventoryMode;craftSlots.fill(null);inventoryMode='hand';craftSlots[0]=stack(B.OAK_LOG,1);test('Hand recipe log to planks',()=>currentRecipe()?.out===B.OAK_PLANKS);for(let i=0;i<9;i++)craftSlots[i]=old[i];inventoryMode=oldMode;test('Nine-slot hotbar',()=>inventory.slice(0,9).length===9);test('View-relative forward movement',()=>{const y=player.yaw;player.yaw=Math.PI/2;const sy=Math.sin(player.yaw),cy=Math.cos(player.yaw),tx=-sy,tz=-cy;player.yaw=y;return tx<-.99&&Math.abs(tz)<.01});test('Shader controls available',()=>!!$('#shadersEnabledToggle')&&['reimagined','cinematic'].includes(settings.shaderProfile));test('WebGL compatibility path',()=>!!gl);return results},
+// Exposing internally used functions for performance benchmarking
+_terrainInfo: terrainInfo,
+_biomeAt: biomeAt,
+runBenchmark: (iterations = 50000) => {
+  const start = performance.now();
+  let dummy = 0;
+  // Use a coordinate grid logic to avoid pure repetitive linear lookups
+  for (let i = 0; i < iterations; i++) {
+    const x = (i % 256) - 128;
+    const z = Math.floor(i / 256) - 128;
+    const t = terrainInfo(x, z);
+    dummy += t.height;
+  }
+  return { duration: performance.now() - start, dummy };
+}};
 $$('[data-close="worldsScreen"]').forEach(b=>b.onclick=()=>{closeScreen(dom.worlds);openScreen(dom.main)});$$('[data-close="createScreen"]').forEach(b=>b.onclick=()=>{closeScreen(dom.create);openScreen(dom.main)});
 boot();
 })();

@@ -99,6 +99,18 @@ public final class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClientCompat() {
             @Override
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView view,
+                    @NonNull WebResourceRequest request
+            ) {
+                String url = request.getUrl().toString();
+                if (url.startsWith("https://appassets.androidplatform.net/") || "about:blank".equals(url)) {
+                    return false;
+                }
+                return true;
+            }
+
+            @Override
             public WebResourceResponse shouldInterceptRequest(
                     @NonNull WebView view,
                     @NonNull WebResourceRequest request

@@ -99,6 +99,32 @@ public final class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClientCompat() {
             @Override
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView view,
+                    @NonNull WebResourceRequest request
+            ) {
+                String url = request.getUrl().toString();
+                if (!url.startsWith("https://appassets.androidplatform.net/")) {
+                    Log.w(TAG, "Blocked external webview navigation to: " + url);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            @Deprecated
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView view,
+                    @NonNull String url
+            ) {
+                if (!url.startsWith("https://appassets.androidplatform.net/")) {
+                    Log.w(TAG, "Blocked external webview navigation to: " + url);
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
             public WebResourceResponse shouldInterceptRequest(
                     @NonNull WebView view,
                     @NonNull WebResourceRequest request

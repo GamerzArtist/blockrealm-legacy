@@ -1,0 +1,3 @@
+## 2026-08-11 - Theme-Aligned Focus Indicators in Voxel Interfaces
+**Learning:** Standard browser keyboard focus outlines are often suppressed or completely disabled on custom touch/HUD button interfaces to keep a clean, immersive look. However, this entirely breaks keyboard/tab accessibility. We can preserve immersion while achieving high-contrast visibility by implementing double-layered outlines using a theme-aligned color (like Minecraft gold #ffeb3b) and deep background shadows.
+**Action:** Always provide custom :focus-visible selectors with double gold outline styles for all buttons, inputs, and selectors, matching the retro-voxel theme rather than relying on default browser rings or completely suppressing outlines.

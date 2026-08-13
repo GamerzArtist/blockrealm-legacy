@@ -99,6 +99,31 @@ public final class MainActivity extends Activity {
 
         webView.setWebViewClient(new WebViewClientCompat() {
             @Override
+            public boolean shouldOverrideUrlLoading(
+                    @NonNull WebView view,
+                    @NonNull WebResourceRequest request
+            ) {
+                String url = request.getUrl().toString();
+                // Restrict WebView frame navigation strictly to appassets domain
+                if (url.startsWith("https://appassets.androidplatform.net/")) {
+                    return false;
+                }
+                Log.w(TAG, "Blocked unsafe WebView WebResourceRequest navigation to: " + url);
+                return true;
+            }
+
+            @Override
+            @SuppressWarnings("deprecation")
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                // Restrict WebView frame navigation strictly to appassets domain (legacy fallback)
+                if (url != null && url.startsWith("https://appassets.androidplatform.net/")) {
+                    return false;
+                }
+                Log.w(TAG, "Blocked unsafe WebView string URL navigation to: " + url);
+                return true;
+            }
+
+            @Override
             public WebResourceResponse shouldInterceptRequest(
                     @NonNull WebView view,
                     @NonNull WebResourceRequest request

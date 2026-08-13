@@ -1,0 +1,4 @@
+## 2026-08-13 - Local WebView Hardening and CSP Protection
+**Vulnerability:** WebView did not override `shouldOverrideUrlLoading`, permitting navigation to external or untrusted schemes from within the app container. Furthermore, `index.html` lacked a Content Security Policy (CSP), exposing the game to XSS and injection threats.
+**Learning:** Hybrid Android-Web wrappers are highly vulnerable if navigation is not strictly isolated. Restricting the WebViews' allowed URLs prevents host hijack. Hardening web assets with a tight CSP further ensures that only trusted, local game scripts and stylesheets are processed.
+**Prevention:** Override both the modern and deprecated legacy `shouldOverrideUrlLoading` callbacks to filter domains, and define a strict Content Security Policy in `index.html` allowing only local schemas.

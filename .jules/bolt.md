@@ -1,0 +1,3 @@
+## 2026-08-13 - Terrain Generation Performance Optimization via Map Caching and Calculation Deduplication
+**Learning:** Procedural terrain noise generation (using FBM octaves) is extremely CPU-intensive inside Javascript loops. By caching these calculations in a bounded `Map` cache, we can reduce redundant math significantly. Evicting the cache using `.clear()` when bounds are reached completely avoids JS engine overhead that manual FIFO iterator deletions introduce.
+**Action:** Always implement bounded Map caches using `.clear()` for eviction on performance-critical paths, and ensure to reset/invalidate the cache whenever world variables like seeds are modified.

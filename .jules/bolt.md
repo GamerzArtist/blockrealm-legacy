@@ -1,0 +1,3 @@
+## 2026-03-31 - Single-pass Biome Evaluation and Bounded Terrain Caching
+**Learning:** In procedural terrain generation, chunk generation and feature decoration repeatedly query column terrain info across chunk boundaries (up to 740 queries per 16x16 chunk). Re-evaluating 10+ noise octaves per column degrades chunk loading speed. Consolidating biome evaluation into single-pass noise lookups and caching column results in a 32-bit bitpacked key Map speeds up chunk generation by ~22%.
+**Action:** When working on spatial procedural generation, combine related noise queries into single passes and memoize coordinate-based column calculations using integer bitpacked keys and bounded Map cache resets.

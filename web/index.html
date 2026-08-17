@@ -62,7 +62,7 @@
 
 <div id="worldsScreen" class="screen hidden dark-screen">
   <div class="wide-window stone-frame">
-    <div class="window-head"><h2>WORLDS</h2><button class="icon-btn" data-close="worldsScreen">×</button></div>
+    <div class="window-head"><h2>WORLDS</h2><button class="icon-btn" data-close="worldsScreen" aria-label="Close">×</button></div>
     <div id="worldList" class="world-list"></div>
     <div class="bottom-actions"><button id="createFromList" class="mc-btn primary">CREATE WORLD</button><button class="mc-btn" data-close="worldsScreen">BACK</button></div>
   </div>
@@ -70,7 +70,7 @@
 
 <div id="createScreen" class="screen hidden dark-screen">
   <div class="window stone-frame">
-    <div class="window-head"><h2>CREATE WORLD</h2><button class="icon-btn" data-close="createScreen">×</button></div>
+    <div class="window-head"><h2>CREATE WORLD</h2><button class="icon-btn" data-close="createScreen" aria-label="Close">×</button></div>
     <div class="form-grid">
       <label>WORLD NAME<input id="worldName" maxlength="28" value="New Realm"></label>
       <label>SEED<input id="worldSeed" maxlength="48" placeholder="Leave blank for a random seed"></label>
@@ -86,7 +86,7 @@
 
 <div id="settingsScreen" class="screen hidden dark-screen">
   <div class="window stone-frame scroll-window">
-    <div class="window-head"><h2>SETTINGS</h2><button class="icon-btn" data-close="settingsScreen">×</button></div>
+    <div class="window-head"><h2>SETTINGS</h2><button class="icon-btn" data-close="settingsScreen" aria-label="Close">×</button></div>
     <div class="settings-grid">
       <label>VIEW DISTANCE <b id="viewDistanceValue"></b><input id="viewDistance" type="range" min="1" max="4" step="1"></label>
       <label>RENDER SCALE <b id="renderScaleValue"></b><input id="renderScale" type="range" min="0.5" max="1" step="0.05"></label>
@@ -114,7 +114,7 @@
 
 <div id="aboutScreen" class="screen hidden dark-screen">
   <div class="window stone-frame scroll-window text-window">
-    <div class="window-head"><h2>ABOUT</h2><button class="icon-btn" data-close="aboutScreen">×</button></div>
+    <div class="window-head"><h2>ABOUT</h2><button class="icon-btn" data-close="aboutScreen" aria-label="Close">×</button></div>
     <p><strong>BlockRealm: Legacy</strong> is an original mobile-first voxel survival engine. It uses procedural pixel textures, streamed seed-based terrain and a WebGL 1 renderer designed for broad Android WebView compatibility, with scalable original shader profiles and explicit safe-mode diagnostics.</p>
     <h3>Core loop</h3><p>Explore → gather → craft → mine deeper → smelt metals → survive the night → build a permanent realm.</p>
     <h3>Controls</h3><p>Mobile: left joystick to move, swipe the right side to look, hold the pick button to mine or attack, tap the hand button to place or interact, and use the jump/sprint buttons. Desktop: WASD, mouse, Space, Shift, E, left/right click.</p>
@@ -141,9 +141,9 @@
     <div id="biomeBadge" class="biome-badge">PLAINS</div>
   </div>
   <div class="top-right-hud">
-    <button id="inventoryBtn" class="hud-btn">▦</button>
-    <button id="shaderQuickBtn" class="hud-btn shader-quick" title="Cycle shaders">✦</button>
-    <button id="pauseBtn" class="hud-btn">Ⅱ</button>
+    <button id="inventoryBtn" class="hud-btn" aria-label="Inventory">▦</button>
+    <button id="shaderQuickBtn" class="hud-btn shader-quick" title="Cycle shaders" aria-label="Cycle shaders">✦</button>
+    <button id="pauseBtn" class="hud-btn" aria-label="Pause game">Ⅱ</button>
   </div>
   <div id="crosshair" class="crosshair"><i></i><b></b></div>
   <svg id="mineProgress" viewBox="0 0 44 44"><circle class="track" cx="22" cy="22" r="18"></circle><circle class="fill" cx="22" cy="22" r="18"></circle></svg>
@@ -164,16 +164,16 @@
   <div id="mobileControls">
     <div id="lookZone"></div>
     <div id="joystick" class="joystick"><div id="joystickKnob"></div></div>
-    <button id="mineBtn" class="action-btn mine-btn"><span>⛏</span></button>
-    <button id="useBtn" class="action-btn use-btn"><span>✋</span></button>
-    <button id="jumpBtn" class="action-btn jump-btn"><span>↑</span></button>
-    <button id="sprintBtn" class="action-btn sprint-btn"><span>»</span></button>
+    <button id="mineBtn" class="action-btn mine-btn" aria-label="Mine or attack"><span>⛏</span></button>
+    <button id="useBtn" class="action-btn use-btn" aria-label="Place or interact"><span>✋</span></button>
+    <button id="jumpBtn" class="action-btn jump-btn" aria-label="Jump"><span>↑</span></button>
+    <button id="sprintBtn" class="action-btn sprint-btn" aria-label="Sprint"><span>»</span></button>
   </div>
 </div>
 
 <div id="inventoryOverlay" class="overlay hidden">
   <div class="inventory-window stone-frame">
-    <div class="window-head"><h2 id="inventoryTitle">INVENTORY</h2><button id="closeInventory" class="icon-btn">×</button></div>
+    <div class="window-head"><h2 id="inventoryTitle">INVENTORY</h2><button id="closeInventory" class="icon-btn" aria-label="Close">×</button></div>
     <div class="inventory-layout">
       <aside class="player-pane">
         <div class="player-paperdoll"><div class="player-head"></div><div class="player-body"></div><div class="player-arm l"></div><div class="player-arm r"></div><div class="player-leg l"></div><div class="player-leg r"></div></div>

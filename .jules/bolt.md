@@ -1,0 +1,3 @@
+## 2025-05-18 - Bounded Map terrain computation caching
+**Learning:** In procedural voxel terrain generators, `terrainInfo(x,z)` is queried repeatedly during chunk generation, chunk decoration, surface height checks, and biome updates. Caching procedural noise results in a bounded `Map` avoids thousands of redundant fractal noise (`fbm`) calculations. Clearing bounded caches completely via `.clear()` when full avoids JS engine performance degradation associated with FIFO iterator deletions in hot loops.
+**Action:** When caching expensive computations in hot execution paths, use a bounded `Map` and reset it via `.clear()` when capacity is reached or when world seed/state changes.

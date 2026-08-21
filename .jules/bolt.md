@@ -1,0 +1,3 @@
+## 2026-08-21 - Bounded Terrain Noise Caching
+**Learning:** Procedural terrain evaluation `terrainInfo(x, z)` computes multiple fractional Brownian motion (FBM) octaves per column during chunk meshing, biome checks, and surface height lookups. Without caching, identical coordinates incur high CPU re-computation costs. Clearing the cache completely via `.clear()` when reaching capacity avoids JavaScript engine overhead associated with FIFO iterator deletions in hot paths.
+**Action:** Always memoize procedural height and biome lookup calculations in a bounded `Map` and clear the cache completely (`.clear()`) on bounds overflow and during world/seed transitions to maintain optimal JS engine performance and prevent cross-seed data leakages.

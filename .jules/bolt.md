@@ -1,0 +1,3 @@
+## 2026-09-01 - Memoize Tile UV Coordinate Calculations in Chunk Meshing
+**Learning:** During voxel chunk meshing in `web/game.js`, `uvFor(tile, corner)` was called 6 times per quad face, repeatedly performing integer division, modulus, floating-point math, and allocating new 2-element arrays (`[u, v]`). Since atlas tile IDs are fixed static integers, caching the 4 UV corner pairs per tile ID in a Map (`UV_CACHE`) eliminates thousands of garbage collection array allocations and floating-point recalculations during world loading and chunk streaming.
+**Action:** Always check inner loops of chunk generation/meshing routines for static calculations that construct fresh array literals or calculate redundant texture coordinates, and cache them by ID/key.

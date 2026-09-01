@@ -141,7 +141,9 @@ const FACES=[
 ];
 const TRI=[0,1,2,0,2,3];
 function faceTile(b,face){const d=BLOCKS[b];if(face.name==='top'&&d.top!=null)return d.top;if(face.name==='bottom'&&d.bottom!=null)return d.bottom;if((face.name==='north')&&d.front!=null)return d.front;if((face.name==='east'||face.name==='west'||face.name==='south'||face.name==='north')&&d.side!=null)return d.side;return d.tile||0}
-function uvFor(tile,corner){const tx=tile%8,ty=tile/8|0,e=.002;const u0=tx/8+e,v0=ty/8+e,u1=(tx+1)/8-e,v1=(ty+1)/8-e;return corner===0?[u0,v1]:corner===1?[u0,v0]:corner===2?[u1,v0]:[u1,v1]}
+// Memoized UV coordinate lookup table to eliminate garbage collection pressure and repeated float calculations during chunk meshing
+const UV_CACHE=new Map();
+function uvFor(tile,corner){let c=UV_CACHE.get(tile);if(!c){const tx=tile%8,ty=tile/8|0,e=.002;const u0=tx/8+e,v0=ty/8+e,u1=(tx+1)/8-e,v1=(ty+1)/8-e;c=[[u0,v1],[u0,v0],[u1,v0],[u1,v1]];UV_CACHE.set(tile,c)}return c[corner]}
 let meshLookup=null;function occluder(x,y,z){const b=meshLookup?meshLookup(x,y,z):getBlock(x,y,z),d=BLOCKS[b];return !!d?.solid&&!d.transparent}
 function vertexAO(x,y,z,face,vert){if(!settings.ao)return 1;const v=face.v[vert],n=face.n;let s1=[0,0,0],s2=[0,0,0],corner=[0,0,0];if(n[0]){s1=[0,v[1]?1:-1,0];s2=[0,0,v[2]?1:-1]}else if(n[1]){s1=[v[0]?1:-1,0,0];s2=[0,0,v[2]?1:-1]}else{s1=[v[0]?1:-1,0,0];s2=[0,v[1]?1:-1,0]}corner=[s1[0]+s2[0],s1[1]+s2[1],s1[2]+s2[2]];const bx=x+n[0],by=y+n[1],bz=z+n[2],a=occluder(bx+s1[0],by+s1[1],bz+s1[2]),b=occluder(bx+s2[0],by+s2[1],bz+s2[2]),c=occluder(bx+corner[0],by+corner[1],bz+corner[2]);const occ=a&&b?3:(a?1:0)+(b?1:0)+(c?1:0);return[1,.84,.69,.54][occ]}
 function addQuad(arr,x,y,z,face,tile,light){for(const q of TRI){const p=face.v[q],uv=uvFor(tile,q);arr.push(x+p[0],y+p[1],z+p[2],uv[0],uv[1],light,vertexAO(x,y,z,face,q),face.n[0],face.n[1],face.n[2])}}

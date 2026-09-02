@@ -1,0 +1,3 @@
+## 2026-09-02 - Bounded Terrain Calculation Caching
+**Learning:** In procedural voxel games, coordinate-based terrain evaluations (`terrainInfo(x, z)`) involve multiple multi-octave noise calculations (`fbm`). Repeated calls during column generation, tree placement, and surface height lookups cause unnecessary CPU overhead and noise re-computations.
+**Action:** Use a bounded `terrainCache` Map capped at 10,000 entries that clears completely via `.clear()` when full to avoid FIFO iterator allocation overhead in performance-critical paths. Always clear `terrainCache` when changing world seeds or loading new worlds.

@@ -1,0 +1,3 @@
+## 2025-05-18 - Procedural Terrain Info Memoization & FBM Noise Deduplication
+**Learning:** Procedural terrain noise queries (`terrainInfo(x, z)`) were repeatedly calculating identical multi-octave FBM noise values for temperature and moisture during chunk generation and biome queries. Moreover, repeated queries for nearby coordinates caused excessive redundant FBM noise calculations.
+**Action:** Deduplicate `temp` and `moist` FBM calls by computing them once per coordinate and passing them into `biomeAt(x, z, temp, moist)`. Implement a bounded `terrainCache` Map (capped at 10,000 entries) that clears completely via `.clear()` to prevent cross-seed/world leaks while avoiding engine overhead from FIFO iterator deletions in hot paths.

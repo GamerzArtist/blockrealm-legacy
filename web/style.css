@@ -5,6 +5,7 @@
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none}
 html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#0b0e0c;color:#fff;font-family:"Courier New",ui-monospace,monospace;touch-action:none;overscroll-behavior:none}
 button,input,select{font:inherit}button{cursor:pointer}canvas{position:fixed;inset:0;width:100%;height:100%;display:block;background:#090d0b;image-rendering:pixelated}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #ffeb3b;outline-offset:2px;box-shadow:0 0 0 4px rgba(0,0,0,0.8)}
 .hidden{display:none!important}.screen{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:calc(18px + var(--safe-t)) calc(18px + var(--safe-r)) calc(18px + var(--safe-b)) calc(18px + var(--safe-l));overflow:auto}
 .stone-frame{background:linear-gradient(#d1d1d1,#b7b7b7);color:#1b1b1b;border:4px solid;border-color:#fff #4b4b4b #4b4b4b #fff;box-shadow:0 0 0 4px #111,10px 10px 0 rgba(0,0,0,.42);position:relative}
 .stone-frame:after{content:"";position:absolute;inset:4px;pointer-events:none;opacity:.09;background-image:repeating-linear-gradient(0deg,transparent 0 3px,#000 3px 4px),repeating-linear-gradient(90deg,transparent 0 7px,#fff 7px 8px)}

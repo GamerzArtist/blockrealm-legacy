@@ -1,0 +1,3 @@
+## 2026-09-21 - Eliminate Array Allocations in Vertex Ambient Occlusion
+**Learning:** In hot chunk meshing routines, calculating per-vertex ambient occlusion using temporary 3-element arrays (`s1`, `s2`, `corner`) and inline array literals (`[1, .84, .69, .54]`) causes thousands of heap array allocations per meshed chunk, triggering unnecessary garbage collection pauses.
+**Action:** Use scalar variables (`s1x`, `s1y`, `s1z`, `s2x`, `s2y`, `s2z`, `cx`, `cy`, `cz`) for 3D vector components and a top-level module-scoped lookup array (`AO_FACTORS`) when computing ambient occlusion factors during WebGL chunk meshing.

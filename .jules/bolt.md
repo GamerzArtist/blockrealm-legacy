@@ -1,0 +1,3 @@
+## 2026-10-01 - WebGL Entity Program Hoisting & Attribute Caching
+**Learning:** In WebGL render loops, invoking `gl.useProgram`, `gl.bindBuffer`, `gl.enableVertexAttribArray`, `gl.vertexAttribPointer`, and `gl.getAttribLocation` repeatedly per rendered sub-box (e.g. mob limbs, item drop spin boxes) creates severe WebGL driver overhead and garbage collection pressure.
+**Action:** Hoist program activation, attribute pointer binding, and frame-static uniforms into a lazy `prepareEntityProgram(sky)` helper triggered once per frame during entity rendering, and cache attribute locations on `program.attribs`.

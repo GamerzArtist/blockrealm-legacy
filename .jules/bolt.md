@@ -1,0 +1,3 @@
+## 2026-10-11 - WebGL Frame-Static Uniform Hoisting & Location Caching
+**Learning:** Re-querying WebGL attribute and uniform locations via `gl.getAttribLocation`/`gl.getUniformLocation` and re-uploading identical uniforms for every chunk mesh inside per-frame render loops causes substantial JS driver overhead.
+**Action:** Always cache attribute/uniform location lookups on shader program objects (`p.attribs`, `p.locs`) and hoist frame-static uniform configuration into dedicated pre-pass helpers (`prepareWorldProgram`) to execute uniform uploads once per render pass instead of per primitive/mesh.

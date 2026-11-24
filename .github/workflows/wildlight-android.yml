@@ -1,0 +1,58 @@
+name: Wildlight native APK
+on:
+  pull_request:
+    paths:
+      - 'v2/android/**'
+      - '.github/workflows/wildlight-android.yml'
+  push:
+    branches: [main, v2-wildlight-benchmark]
+    paths:
+      - 'v2/android/**'
+      - '.github/workflows/wildlight-android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Install required SDK packages using runner SDK
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -d "$ANDROID_HOME"
+          SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -path '*/bin/sdkmanager' | sort -V | tail -1)
+          test -x "$SDKMANAGER"
+          "$SDKMANAGER" --install "platforms;android-35" "build-tools;35.0.0"
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+      - name: Test, lint and assemble signed debug preview
+        working-directory: v2/android
+        run: gradle --no-daemon :app:testDebugUnitTest :app:lintDebug :app:assembleDebug
+      - name: Verify signature and checksum
+        run: |
+          mkdir -p dist
+          cp v2/android/app/build/outputs/apk/debug/app-debug.apk dist/VoxelForge-Wildlight-preview.apk
+          "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs dist/VoxelForge-Wildlight-preview.apk | tee dist/signature.txt
+          cd dist
+          sha256sum VoxelForge-Wildlight-preview.apk > SHA256SUMS.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: VoxelForge-Wildlight-native-APK
+          path: dist/
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: Wildlight-Android-QA
+          path: |
+            v2/android/app/build/reports/
+            v2/android/app/build/test-results/
+          if-no-files-found: ignore

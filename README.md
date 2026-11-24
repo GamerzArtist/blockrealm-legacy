@@ -1,4 +1,18 @@
-# BlockRealm: Legacy
+# Certainly not Hello World
+
+A fun benchmark made by ChatGPT in ordinary Chat mode, just to see whether the newer ChatGPT models have landed in my Chat mode. T-T
+
+This is a coding experiment, not proof of a particular model rollout. V2 contains the VoxelForge Wildlight browser engine. BlockRealm: Legacy remains preserved below and in the original directories. Later we plan to revisit it with a Lunar Launcher-inspired mobile app UI.
+
+## V2 — Wildlight
+
+Open [v2/web/index.html](v2/web/index.html) locally in a WebGL2 browser. [Engineering review](v2/REVIEW.md) and [original build guide](v2/README.md). The original guide describes the full downloadable distribution; not all files in that distribution are necessarily present here. The native preview is a separate renderer, not a full survival port.
+
+---
+
+## Original project documentation
+
+### BlockRealm: Legacy
 
 > Open-source mobile-first voxel survival sandbox with procedural worlds, crafting, configurable shaders, offline PWA support, and an Android launcher.
 

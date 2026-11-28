@@ -6,11 +6,11 @@ android {
     namespace 'com.voxelforge.game'
     compileSdk 35
     defaultConfig {
-        applicationId 'com.voxelforge.game'
+        applicationId 'com.voxelforge.wildlight.preview'
         minSdk 26
         targetSdk 35
-        versionCode 3
-        versionName '0.3-native-preview'
+        versionCode 4
+        versionName '0.3.1-native-preview'
     }
     signingConfigs {
         if (signingFile.exists()) {

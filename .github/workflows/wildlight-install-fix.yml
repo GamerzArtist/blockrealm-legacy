@@ -21,7 +21,10 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          sdkmanager --install "platforms;android-35" "build-tools;35.0.0"
+          test -d "$ANDROID_HOME"
+          SDKMANAGER=$(find "$ANDROID_HOME/cmdline-tools" -path '*/bin/sdkmanager' | sort -V | tail -1)
+          test -x "$SDKMANAGER"
+          "$SDKMANAGER" --install "platforms;android-35" "build-tools;35.0.0"
           pass=$(openssl rand -hex 24)
           echo "::add-mask::$pass"
           keytool -genkeypair -keystore "$RUNNER_TEMP/wildlight-preview.p12" -storetype PKCS12 -storepass "$pass" -keypass "$pass" -alias preview -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=VoxelForge Wildlight Preview"

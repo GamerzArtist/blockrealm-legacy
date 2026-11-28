@@ -1,0 +1,17 @@
+name: Frontier native core
+on:
+  pull_request:
+    paths: ['frontier/engine/**', '.github/workflows/frontier-core.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup show
+      - run: cargo test --manifest-path frontier/engine/Cargo.toml
+      - run: cargo build --release --manifest-path frontier/engine/Cargo.toml
+      - run: rustup target add wasm32-unknown-unknown
+      - run: cargo build --release --target wasm32-unknown-unknown --manifest-path frontier/engine/Cargo.toml

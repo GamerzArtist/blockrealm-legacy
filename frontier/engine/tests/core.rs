@@ -57,8 +57,7 @@ fn reject_out_of_range_spectator_and_invalid_inventory() {
     p.position_mm=[i64::MIN,i64::MAX,0];
     assert_eq!(e.edit(&mut p,a),Err(Reject::Range));
     p.position_mm=[500,y as i64*1000+500,500];
-    let empty=Pos{x:0,y:y.max(62)+1,z:0};
-    assert_eq!(e.edit(&mut p,Edit{sequence:1,position:empty,action:Action::Place(999)}),Err(Reject::InvalidBlock));
+    assert_eq!(e.edit(&mut p,Edit{sequence:1,position:pos,action:Action::Place(999)}),Err(Reject::InvalidBlock));
     assert_eq!(p.count(STONE),0);
 }
 

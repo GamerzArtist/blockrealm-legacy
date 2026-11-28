@@ -40,9 +40,19 @@ public final class MainActivity extends Activity implements NativeRenderer.Liste
     private boolean playing=false,ready=false,qaMode=false,destroyed=false,resetting=false;
     private SharedPreferences prefs;private ProceduralAudio audio;
     private final Runnable autosave=new Runnable(){@Override public void run(){if(!destroyed){if(playing)save();ui.postDelayed(this,12000);}}};
-    @Override public void onCreate(Bundle savedInstanceState){super.onCreate(savedInstanceState);getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);immersive();qaMode=getIntent().getBooleanExtra("qa",false);prefs=getSharedPreferences(qaMode?"voxelforge.native.qa":"voxelforge.native.v1",MODE_PRIVATE);root=new FrameLayout(this);root.setBackgroundColor(Color.rgb(21,39,36));setContentView(root);audio=new ProceduralAudio(this);startEngine();ui.postDelayed(autosave,12000);}
+    @Override public void onCreate(Bundle savedInstanceState){super.onCreate(savedInstanceState);getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);qaMode=getIntent().getBooleanExtra("qa",false);prefs=getSharedPreferences(qaMode?"voxelforge.native.qa":"voxelforge.native.v1",MODE_PRIVATE);root=new FrameLayout(this);root.setBackgroundColor(Color.rgb(21,39,36));setContentView(root);root.post(this::immersive);audio=new ProceduralAudio(this);startEngine();ui.postDelayed(autosave,12000);}
     private int dp(float n){return Math.round(n*getResources().getDisplayMetrics().density);}
-    private void immersive(){if(android.os.Build.VERSION.SDK_INT>=30){WindowInsetsController c=getWindow().getInsetsController();if(c!=null){c.hide(WindowInsets.Type.systemBars());c.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);}}else getWindow().getDecorView().setSystemUiVisibility(5894);}
+    private void immersive(){
+        // WindowInsetsController is unavailable until the decor view has been created.
+        View decor=getWindow().getDecorView();
+        if(android.os.Build.VERSION.SDK_INT>=30){
+            WindowInsetsController c=decor.getWindowInsetsController();
+            if(c!=null){
+                c.hide(WindowInsets.Type.systemBars());
+                c.setSystemBarsBehavior(WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            }
+        }else decor.setSystemUiVisibility(5894);
+    }
     @Override public void onWindowFocusChanged(boolean f){super.onWindowFocusChanged(f);if(f)immersive();}
     private GradientDrawable bg(int color,int border){GradientDrawable d=new GradientDrawable();d.setColor(color);d.setStroke(dp(2),border);return d;}
     private TextView text(String s,int size){TextView t=new TextView(this);t.setText(s);t.setTextSize(size);t.setTextColor(0xfff2eed7);t.setTypeface(Typeface.MONOSPACE,Typeface.BOLD);t.setGravity(Gravity.CENTER);t.setShadowLayer(1,1,2,Color.BLACK);return t;}

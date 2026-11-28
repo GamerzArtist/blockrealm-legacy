@@ -1,0 +1,2210 @@
+[
+  {
+    "number": 276,
+    "title": "⚡ Bolt: optimize coordinate string key parsing in game loops",
+    "branch": "Jules-by-google-8298518593052505934",
+    "sha": "e4dac5c50750ea981ec1630c812d1f5934b306d7",
+    "group": "coordinate-parsing",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 275,
+    "title": "🛡️ Sentinel: [HIGH] Sanitize world seed in debug panel against XSS",
+    "branch": "Jules-by-google-3545568749433996631",
+    "sha": "810c6cd0ec48af5f9b39a4678a4c565b80060111",
+    "group": "seed-escaping",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 274,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon buttons and action controls",
+    "branch": "palette/add-accessible-aria-labels-17135636850239025002",
+    "sha": "0a913263fe4d5f08dced9a2b7ef29cbb92cd10a8",
+    "group": "accessibility-labels",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 273,
+    "title": "⚡ Bolt: cache WebGL uniform locations",
+    "branch": "Jules-by-google-7674640553282485223",
+    "sha": "7216923fdf14b96a676a5fc71d428517298cd7ae",
+    "group": "uniform-cache",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 272,
+    "title": "🎨 Palette: Add ARIA labels to HUD icon buttons",
+    "branch": "Jules-by-google-5494426220940583439",
+    "sha": "20f8b229c9ffd4b2e02d1fdaf79a4e13a4436040",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 271,
+    "title": "⚡ Bolt: Zero-allocation coordinate key parsing in hot rendering & meshing loops",
+    "branch": "Jules-by-google-4045907112686240590",
+    "sha": "0a2c1aa7970689ceaa1789bfe9d03ae3909029d7",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 270,
+    "title": "🛡️ Sentinel: Fix DOM XSS vulnerability in debug panel",
+    "branch": "Jules-by-google-2427765397106524331",
+    "sha": "8e885b53243d522f1650faf908e7f6c00f2cf72e",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 269,
+    "title": "⚡ Bolt: optimize quad meshing by precalculating vertex AO and unrolling vertex generation",
+    "branch": "Jules-by-google-12145003667570012701",
+    "sha": "92a6251fdd1bde0470ea6abce5a84683d5402afe",
+    "group": "vertex-ao",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 268,
+    "title": "🛡️ Sentinel: Sanitize world seed in updateDebug to prevent DOM XSS",
+    "branch": "Jules-by-google-6095816783142632277",
+    "sha": "a999c71da295809ded3716d0b132a37bef7079b6",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 267,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "palette-button-aria-labels-8742184995800899863",
+    "sha": "1525a8e7fc337533a44e236017156436e8bce784",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 266,
+    "title": "⚡ Bolt: Deduplicate procedural noise calculations in terrainInfo",
+    "branch": "Jules-by-google-13996535632379804647",
+    "sha": "3435c5b75d410ee3712d57a6125509a38f4dc4d2",
+    "group": "terrain-cache",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 265,
+    "title": "⚡ Bolt: cache WebGL uniform and attribute locations",
+    "branch": "jules-943970227702859868-3f7dffc9",
+    "sha": "5be7383f20284de5732ca9fc0bdc447958b67138",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 264,
+    "title": "🛡️ Sentinel: Sanitize world seed input in debug panel to prevent XSS",
+    "branch": "jules-16519251853497508976-f89fa53f",
+    "sha": "4dd7f8a204c2d2df8d57ab18e4df6f302b1b8441",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 263,
+    "title": "🎨 Palette: Add ARIA labels for icon-only buttons and theme-aligned focus-visible indicators",
+    "branch": "Jules-by-google-11944950530762437586",
+    "sha": "7603dbfdaa4bc1289cdf1a422fe68e27b5dd0578",
+    "group": "accessibility-focus",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 262,
+    "title": "⚡ Bolt: Hoist WebGL frame uniforms and cache attrib/uniform locations",
+    "branch": "Jules-by-google-3538593408267630256",
+    "sha": "0e649fe86c6fa383b495b045809a4f8c067e5d9c",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 261,
+    "title": "fix: drop furnace contents when furnace block is broken",
+    "branch": "Jules-by-google-1862533042554402701",
+    "sha": "5d2f98bd97c1dbddf4fc3d65212ce1f69286f985",
+    "group": "furnace-drops",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 260,
+    "title": "🎨 Palette: Add ARIA labels for icon buttons and keyboard focus-visible styles",
+    "branch": "Jules-by-google-8155134303942028864",
+    "sha": "a43fe7d9dd6542422a741c022e282a57b965ceb9",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 259,
+    "title": "⚡ Bolt: Hoist WebGL world shader program state and frame uniforms",
+    "branch": "jules-7998310379953896371-71f65aa0",
+    "sha": "9ced7599f278da30ee47f939ec4addf789d21e54",
+    "group": "render-state-hoisting",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 258,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM-based XSS in debug panel seed rendering",
+    "branch": "Jules-by-google-4418648295220536675",
+    "sha": "80bc4ee81f78ec533371d08f2b6cede5a4dd883c",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 257,
+    "title": "perf: deduplicate procedural temperature and moisture noise in terrainInfo",
+    "branch": "Jules-by-google-9742809137001638110",
+    "sha": "b5c94f0ea8cbf6db727ac6d8432c77fdfc4bfb5d",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 256,
+    "title": "fix: drop stored items when breaking furnace blocks",
+    "branch": "Jules-by-google-14670292438762043574",
+    "sha": "a6935593974e9c716e51e075a3481dd78fea6e5e",
+    "group": "furnace-drops",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 255,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-2789052945827398162",
+    "sha": "0cae600350907d9b356268e2d19d100c5ef98615",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 254,
+    "title": "⚡ Bolt: Hoist WebGL shader program setup and frame-static uniforms in world mesh rendering",
+    "branch": "Jules-by-google-12910497339406552971",
+    "sha": "82b2c8a063babec49cc08b866d049b04df2254d9",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 253,
+    "title": "🛡️ Sentinel: Sanitize world seed string in debug panel to prevent XSS",
+    "branch": "jules-16495079238219318822-8bdbca14",
+    "sha": "f1ffc8a2a65a152d2c49deead87eb1451a3363c8",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 252,
+    "title": "⚡ Bolt: hoist entity WebGL program setup and frame uniforms",
+    "branch": "Jules-by-google-147058597068252216",
+    "sha": "8a7d8d2af6498a0cb485c5de0b15ce95548849cc",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 251,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and dialog buttons",
+    "branch": "Jules-by-google-11103465862895446131",
+    "sha": "b1ef359008442fec1c605b8f118c90fa6ff3c9c0",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 250,
+    "title": "🛡️ Sentinel: Sanitize world seed string in debug HUD",
+    "branch": "Jules-by-google-17369654353740341362",
+    "sha": "f4224fa36f7e34b6088667daa871cb70b6f8b143",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 249,
+    "title": "🛡️ Sentinel: Add Content Security Policy rules",
+    "branch": "Jules-by-google-5440650856868395420",
+    "sha": "115847859d87485259a9c287c114b258ca5c9d32",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 248,
+    "title": "🛡️ Sentinel: Sanitize world seed in updateDebug to prevent XSS",
+    "branch": "jules-11098262589217563396-fbb607ad",
+    "sha": "2de84bd7d3b6638b5c4649c6a6de8df34699d0a9",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 247,
+    "title": "⚡ Bolt: optimize string coordinate key parsing in hotpaths",
+    "branch": "Jules-by-google-12997929752404340304",
+    "sha": "f9f11114568794d887467ccbf5fcbd44206c9b7e",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 246,
+    "title": "⚡ Bolt: eliminate array allocations by parsing coordinate keys directly",
+    "branch": "jules-1404855843146121670-3a5fc178",
+    "sha": "50ebbb173a39f5e63a5bf72aebd1f3b62abf154c",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 245,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-7219694455485359631",
+    "sha": "ca1474f10bac07cfb39002c0004f7230262f6e0d",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 244,
+    "title": "⚡ Bolt: Optimize coordinate key string parsing in hot loops",
+    "branch": "Jules-by-google-9480990371141112830",
+    "sha": "c8266f391d1f77d30eb349ad843f1add706af85f",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 243,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM XSS vulnerability in debug panel seed rendering",
+    "branch": "jules-18344586424239369705-0e3be81f",
+    "sha": "e817efaff84d7d3fb48a272ac0f6d5b1ac1cbffd",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 242,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-320393448285467139",
+    "sha": "008e48e1a2b0d8eccab4e8d23e73e0cf1b019bbe",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 241,
+    "title": "⚡ Bolt: memoize terrainInfo with bounded terrainCache map",
+    "branch": "Jules-by-google-5520999338304670748",
+    "sha": "dc088a4d3a5a99b2f39e1e97ef6354b1604ee99c",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 240,
+    "title": "⚡ Bolt: Hoist entity WebGL program state and uniforms to reduce per-box overhead",
+    "branch": "jules-15890186107678585763-83a80d1c",
+    "sha": "935775570f1d200fac8ccadc60a4556b614f1f27",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 239,
+    "title": "🎨 Palette: Add ARIA labels to HUD and modal icon buttons for accessibility",
+    "branch": "Jules-by-google-9870053213547803348",
+    "sha": "36ef1ca8a380643d7f1a844766dbb7ff1822f3ac",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 238,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS in debug panel seed rendering",
+    "branch": "Jules-by-google-13308141236624379898",
+    "sha": "23fcc094367f01112b270e5ac2cac6c93c7a190f",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 237,
+    "title": "⚡ Bolt: optimize coordinate string key parsing in game loops",
+    "branch": "Jules-by-google-2918191309321501863",
+    "sha": "ae22944ac1100791373742d0732b109c0932c85c",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 236,
+    "title": "⚡ Bolt: optimize hot-path string key & vector allocations",
+    "branch": "Jules-by-google-2809986958457938870",
+    "sha": "344a969d6eeb308bcaece416f9115f1b0a58fd0e",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 235,
+    "title": "🎨 Palette: Add ARIA labels and titles to icon-only buttons",
+    "branch": "Jules-by-google-5455551136417873960",
+    "sha": "035a3fcfa34009030cd297518ba997afe13ee21b",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 234,
+    "title": "⚡ Bolt: optimize chunk meshing block queries with flat grid lookup",
+    "branch": "Jules-by-google-10784844548190884041",
+    "sha": "a3771e77d07f6d2c9bf8d92bfbcff481e7c18758",
+    "group": "mesh-block-lookup",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 233,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS in debug panel",
+    "branch": "jules-sentinel-xss-fix-9097077617522756628",
+    "sha": "b702e3389de48e8393f2163d58f301e35929b332",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 232,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon-only buttons",
+    "branch": "jules-16887056111015575722-aea56d86",
+    "sha": "33ac32aa39b05fe86881d8e11575a6f4a4085ad3",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 231,
+    "title": "🛡️ Sentinel: Sanitize world seed string in updateDebug() to prevent DOM XSS",
+    "branch": "Jules-by-google-1756652450118990597",
+    "sha": "942d77ab4e27e7cd2d3946474d8229b9703b4a2f",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 230,
+    "title": "⚡ Bolt: Hoist WebGL program state and uniforms in rendering loops",
+    "branch": "Jules-by-google-14872657329960672436",
+    "sha": "77eb14af44e11c043273984bded25b1f45582da2",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 229,
+    "title": "⚡ Bolt: optimize per-frame HUD DOM queries and biome noise calculation",
+    "branch": "Jules-by-google-5672993537786205273",
+    "sha": "bab0da834f1d052bde02f29cc7f05a169e36a480",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 228,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM-based XSS vulnerability in debug panel",
+    "branch": "Jules-by-google-11811579915177291880",
+    "sha": "b4407257ec6999873523dea05d9489253b52afe8",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 227,
+    "title": "⚡ Bolt: Cache WebGL uniform and attribute locations",
+    "branch": "Jules-by-google-6444493443515434900",
+    "sha": "afaf80a8efc58fc5e663a0460d2e92f762269eac",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 226,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-17670086780172007534",
+    "sha": "3a16e93f555f7a74e4c02605516c5c2bfa23e571",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 225,
+    "title": "⚡ Bolt: optimize torchSource allocations",
+    "branch": "Jules-by-google-9356498555024579612",
+    "sha": "644d95b3cb7a1bfe0705e98470f9ccda92a24b2f",
+    "group": "torch-allocations",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 224,
+    "title": "⚡ Bolt: Hoist WebGL entity program state and cache attribute locations",
+    "branch": "bolt-hoist-entity-program-11113696721885808969",
+    "sha": "2a6e13e5b6746ded53528844c601e0a9511b043c",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 223,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and modal buttons",
+    "branch": "jules-16613961324466592594-8faa0302",
+    "sha": "31c20af06c60c3aa9d90f2b1c35dd41376d9df4f",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 222,
+    "title": "⚡ Bolt: Optimize coordinate key parsing in game loops",
+    "branch": "Jules-by-google-749631211575557395",
+    "sha": "5f6eb3ae7a7c9abb8786ffe37579f2fce2cb6d93",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 221,
+    "title": "🛡️ Sentinel: [CRITICAL/HIGH] Fix DOM XSS in debug panel seed display",
+    "branch": "sentinel-xss-fix-debug-panel-10018969388752187045",
+    "sha": "c9c245c60cbdff415fd1b01bc190e307f787e798",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 220,
+    "title": "🛡️ Sentinel: Fix XSS in debug panel seed rendering",
+    "branch": "Jules-by-google-7834648467565405336",
+    "sha": "2d16be7565c33bb9f48dfbb1b5c0184b5288dced",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 219,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and modal buttons",
+    "branch": "Jules-by-google-1963110158958367630",
+    "sha": "e8f05afcdf37ef820d5d970d586ea69468f8b508",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 218,
+    "title": "⚡ Bolt: optimize block coordinate key parsing in generateChunk",
+    "branch": "Jules-by-google-3951197091672378532",
+    "sha": "3324895653f46d5e60bf05a3b931c35d92561645",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 217,
+    "title": "⚡ Bolt: Cache WebGL uniform locations on WebGLProgram instances",
+    "branch": "Jules-by-google-15968520578698249548",
+    "sha": "4511a4d821f2fb8bf821d0d9ad7e2b8aee85da45",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 216,
+    "title": "⚡ Bolt: Deduplicate multi-octave noise calculations in terrainInfo",
+    "branch": "Jules-by-google-16121092285965279891",
+    "sha": "ad5e7ba371c012366439306a88b64377ed301a80",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 215,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM-based XSS in debug panel",
+    "branch": "sentinel/fix-debug-xss-15973049490833428446",
+    "sha": "d4907d363601b8d233c66446c2a8839a914df798",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 214,
+    "title": "🎨 Palette: Improve accessibility with ARIA labels and focus-visible indicators",
+    "branch": "Jules-by-google-2905545074501856577",
+    "sha": "88c71312f605793c802d4281d6c9364212aafcf3",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 213,
+    "title": "⚡ Bolt: Hoist WebGL uniforms in chunk mesh rendering",
+    "branch": "bolt-hoist-webgl-uniforms-7234003005631870663",
+    "sha": "2fdbba45e73c4fbefa8b80d5bf1a8bd249df83ea",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 212,
+    "title": "⚡ Bolt: Hoist WebGL shader program setup and global uniforms out of per-chunk render loop",
+    "branch": "Jules-by-google-1543927026195964009",
+    "sha": "5cd83684e35c869a6ac5ff95371aaff6474fae75",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 211,
+    "title": "🛡️ Sentinel: Fix DOM XSS vulnerability in debug panel seed rendering",
+    "branch": "jules-sentinel-xss-fix-6837925713568375836",
+    "sha": "40a02148f5eb4a2d5a81dea17b7c9aedb125d81e",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 210,
+    "title": "⚡ Bolt: optimize chunk meshing local block lookups with flat array",
+    "branch": "Jules-by-google-13391094345697616083",
+    "sha": "3c229b70909b4199136159308453a36e1721c640",
+    "group": "mesh-block-lookup",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 209,
+    "title": "🎨 Palette: Add ARIA labels to icon-only UI buttons",
+    "branch": "palette-aria-labels-15418797365462345618",
+    "sha": "3769a44098561828eb55bfeb532b5ebd4bb91336",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 208,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-3478772215477799433",
+    "sha": "b4e392bbdcd33f323c0f5b7432954cc4002e2972",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 207,
+    "title": "⚡ Bolt: optimize vertexAO to eliminate per-vertex heap array allocations",
+    "branch": "Jules-by-google-17210376508510460934",
+    "sha": "f81928c6510f5719dd8a78934aa63f6cde1a135e",
+    "group": "vertex-ao",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 206,
+    "title": "⚡ Bolt: Optimize block query string allocations and ray traversal",
+    "branch": "Jules-by-google-7102835017851404064",
+    "sha": "5d8b51aa386d25a5f92e845a7adfd3e518c18c37",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 205,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM XSS in updateDebug",
+    "branch": "sentinel/xss-debug-seed-3589986411979569333",
+    "sha": "c279aeb925285ce801ba41bd5b0d6f97d3b76db1",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 204,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS in debug HUD overlay",
+    "branch": "Jules-by-google-13473379620929486194",
+    "sha": "d362a497431d305237f3c5c365d79628da4fdc10",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 203,
+    "title": "⚡ Bolt: optimize torchSource per-frame allocation in render loop",
+    "branch": "jules-15174010149770810637-4b7b5cec",
+    "sha": "8af40dabd97b0da5e9974e9bba4ffea776101550",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 202,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS in debug panel seed display",
+    "branch": "Jules-by-google-6208858578670389754",
+    "sha": "e9eaa76e9ced340ceea69b00e6bb6716a186a947",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 201,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-3965313926547063912",
+    "sha": "f0c023aa9c36172a67fafac072d77384fe197cb8",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 200,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-17582751727636603433",
+    "sha": "2421cd1a74c470e72645815d315244f83c85bcbc",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 199,
+    "title": "⚡ Bolt: hoist WebGL program state and uniforms in render loop",
+    "branch": "Jules-by-google-1021149500610811744",
+    "sha": "1116f7e3fbb82156720a0828140936046762672f",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 198,
+    "title": "⚡ Bolt: Hoist WebGL program activation and uniform binding out of per-chunk draw loop",
+    "branch": "bolt-hoist-webgl-program-uniforms-8415196842549544280",
+    "sha": "6a07713fd0d980c2a260e78d7bda822ba35ca3ac",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 197,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS vulnerability in updateDebug",
+    "branch": "Jules-by-google-15100853917628924745",
+    "sha": "1579e1249641ba53cf2cee43e45cfa250685ab89",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 196,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM-based XSS in debug HUD seed rendering",
+    "branch": "Jules-by-google-16952217942980243994",
+    "sha": "f17808ebd679fd09499b84644d81004b0b25262d",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 195,
+    "title": "⚡ Bolt: cache WebGL uniform and attribute locations on program instances",
+    "branch": "Jules-by-google-3358573865836845140",
+    "sha": "7fcac145ec271d2fddf621bd3b024e1096dc58b5",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 194,
+    "title": "Add mouse wheel hotbar scrolling support",
+    "branch": "Jules-by-google-5355305423507298959",
+    "sha": "fa415dc7678b48769fee106cd0f21ef7917b2742",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 193,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for screen reader accessibility",
+    "branch": "Jules-by-google-14761463887037484941",
+    "sha": "e07b5b1cfe04961d49d010f753e6dfe311ca6dc9",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 192,
+    "title": "⚡ Bolt: hoist WebGL program uniforms in renderFrame",
+    "branch": "hoist-webgl-program-uniforms-18441207612028529583",
+    "sha": "c939840e6df803aa330c6187dd9b16df6abebb4a",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 191,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug HUD",
+    "branch": "Jules-by-google-18165766602839243483",
+    "sha": "cf80905be1963fe84971bc0d045eb178846bc075",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 190,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-aria-labels-7479378156126521203",
+    "sha": "329b9ef6c54145d6bd08a66b67b74fbcfcae1fe9",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 189,
+    "title": "⚡ Bolt: optimize M4.mul to reuse static Float32Array buffer",
+    "branch": "Jules-by-google-15924404335672340345",
+    "sha": "256f79d346be81c56f0ad0542561f1beccc368d0",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 188,
+    "title": "⚡ Bolt: optimize coordinate string key parsing in hot loops",
+    "branch": "Jules-by-google-10110406546537338758",
+    "sha": "46634a69a5af63c25900e114d3102ded94583f7c",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 187,
+    "title": "⚡ Bolt: eliminate array heap allocations in chunk meshing vertex AO",
+    "branch": "bolt-vertex-ao-allocations-8840461515728742877",
+    "sha": "9ec2b2027556d0679ce3c0d651e115b5d78a2eb2",
+    "group": "vertex-ao",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 186,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS in debug HUD overlay",
+    "branch": "sentinel-fix-xss-debug-hud-14612028738954204211",
+    "sha": "15d00e040a321960c115b0d5171af717189030a9",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 185,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD, modal, and control buttons",
+    "branch": "Jules-by-google-8090454741378987688",
+    "sha": "e7607d6120b761eea5469d0229a79088a1c55362",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 184,
+    "title": "⚡ Bolt: Hoist WebGL shader program state and uniform setters",
+    "branch": "bolt-hoist-webgl-program-uniforms-1272250347419267744",
+    "sha": "6255baf9018d3e0ffd9f4b3010b3264883fa481d",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 183,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only controls",
+    "branch": "Jules-by-google-6221105578123214637",
+    "sha": "ab9c24a075c4125a2225a6b1c42a9909977910bd",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 182,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug view",
+    "branch": "Jules-by-google-5072112123730427285",
+    "sha": "6d314e243551364afe99a1795439bf70ad5f8057",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 181,
+    "title": "⚡ Bolt: optimize vertex ambient occlusion calculations in chunk meshing",
+    "branch": "Jules-by-google-7494153504692201142",
+    "sha": "47a74b2e6704498b85d54d290ae921382ff44ece",
+    "group": "vertex-ao",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 180,
+    "title": "⚡ Bolt: Cache WebGL attribute locations on shader program objects",
+    "branch": "Jules-by-google-13831218239962194490",
+    "sha": "a0237710a11dc315ae188827facb9226a6c24554",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 179,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon buttons",
+    "branch": "Jules-by-google-2154933774922358300",
+    "sha": "fefa42a9b7970710be145690c1a818cdb85a6305",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 178,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM XSS in debug HUD overlay",
+    "branch": "jules-sentinel-fix-xss-debug-seed-6998687625840060373",
+    "sha": "21d62cdbac05cc5eb6df0e99a12ac5b8967fe812",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 177,
+    "title": "⚡ Bolt: optimize coordinate key parsing in chunk generation and streaming",
+    "branch": "jules-bolt-fast-key-parsing-18242506166561982115",
+    "sha": "6cfb111ff4e2f6848fcb0a06b314c5b4d6f11b5b",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 176,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel seed display",
+    "branch": "Jules-by-google-1590618570003216640",
+    "sha": "59f4c0b9eaf1fb3cb7f5318751d7bcf6ca845c06",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 175,
+    "title": "⚡ Perf: Optimize per-frame HUD and UI updates",
+    "branch": "Jules-by-google-394193982008898749",
+    "sha": "83ce5249477e68d1824589a2f3cab9369f6512b9",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 174,
+    "title": "⚡ Bolt: Reuse static buffer and fast key parsing in torchSource",
+    "branch": "Jules-by-google-17169936984804184297",
+    "sha": "f25178b9e7cd72f5a59836853ff6c7b91c593cb6",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 173,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-aria-labels-12366533902461212385",
+    "sha": "e34943247fa1cee3ac8b9f889167097d8937a11f",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 172,
+    "title": "⚡ Bolt: cache WebGL attribute locations for entity rendering",
+    "branch": "Jules-by-google-5605600668565123979",
+    "sha": "9232d5c0b156483b5715c1f3f59986e5f9dc0da7",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 171,
+    "title": "⚡ Bolt: Cache WebGL uniform locations on program instance",
+    "branch": "Jules-by-google-12822436385808186677",
+    "sha": "b50b37f41c791c0d990ac97aa03c7c95b144f194",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 170,
+    "title": "🎨 Palette: Add accessible ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-10898920196058363892",
+    "sha": "62d5d96aed40f5ed84f0e98872727a1512b28e07",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 169,
+    "title": "🛡️ Sentinel: [HIGH] Sanitize world seed string in debug HUD to prevent DOM-based XSS",
+    "branch": "Jules-by-google-1337149364187178100",
+    "sha": "dd323ce678f782e61142fb4c631ff4158183f072",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 168,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM-based XSS vulnerability in debug overlay",
+    "branch": "fix/debug-overlay-xss-14079577054771647016",
+    "sha": "64f796cf20f30a4595bd0765f754cb5e04fc6b7d",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 167,
+    "title": "🎨 Palette: Add ARIA labels and tooltips to icon-only buttons",
+    "branch": "Jules-by-google-13903044481998013508",
+    "sha": "5b464cae4dae46cf56663bd4570f0ba53051189c",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 166,
+    "title": "⚡ Bolt: hoist per-pass WebGL uniforms in chunk rendering",
+    "branch": "Jules-by-google-6148986487787045379",
+    "sha": "dcf578e3b7177d45eaf8eef078cf105740042ebd",
+    "group": "render-state-hoisting",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 165,
+    "title": "⚡ Bolt: optimize string key parsing and torch vector allocation",
+    "branch": "Jules-by-google-10731850857726754443",
+    "sha": "7434c4ca46574ae655613ced03fc767f5ba616b5",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 164,
+    "title": "⚡ Bolt: Optimize terrain generation noise and string coordinate parsing",
+    "branch": "Jules-by-google-294381914304374575",
+    "sha": "92b851ebd8a0bb9d5831ad82cb7f957937169165",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 163,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and dialog buttons",
+    "branch": "Jules-by-google-15644545177595328216",
+    "sha": "1976f0f0cd1f2c186e78f43249dfbe0a4ca975a2",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 162,
+    "title": "🛡️ Sentinel: [HIGH] Fix Prototype Pollution in save state parsing",
+    "branch": "fix/prototype-pollution-prevention-6158554996905199982",
+    "sha": "86ddbe93d1690bc60335da67e2f4254ecb8094cd",
+    "group": "save-deserialization",
+    "disposition": "keep-representative"
+  },
+  {
+    "number": 161,
+    "title": "⚡ Bolt: optimize torchSource per-frame allocations",
+    "branch": "Jules-by-google-5482976012763430918",
+    "sha": "f2474c0adfde1d37a98f93e9c0410b4982384161",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 160,
+    "title": "⚡ Bolt: Memoize per-frame HUD rendering and biome noise computation",
+    "branch": "Jules-by-google-17316792669278291733",
+    "sha": "50cba464a868a851fd4da7c558fedfc7c7913f92",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 159,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and modal buttons",
+    "branch": "jules-7458800838713028844-70b89fef",
+    "sha": "1e775e60b6630f747b1571f85e89e826cde6d0fc",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 158,
+    "title": "🛡️ Sentinel: prevent prototype pollution in state deserialization",
+    "branch": "Jules-by-google-17359181091371882134",
+    "sha": "92b254a95b4cc77186e6d64d13b90ce4fb722fd4",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 157,
+    "title": "🛡️ Sentinel: Fix Prototype Pollution vulnerability in world save state restoration",
+    "branch": "Jules-by-google-7408913788336199774",
+    "sha": "589cffd88e0857138bd0de2cc5d3c0f3837b490b",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 156,
+    "title": "🛡️ Sentinel: [security improvement] Prevent prototype pollution in save data restoration",
+    "branch": "sentinel-safe-assign-prototype-pollution-6896747416118466618",
+    "sha": "cda7ff275aa77c351af633a943f0e0793b1fd4d9",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 155,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for accessibility",
+    "branch": "jules-17398374531815012808-8ed0fc35",
+    "sha": "d0a601ed306100d155a95698bd98536723d479f7",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 154,
+    "title": "⚡ Bolt: optimize torchSource vector allocations and coordinate key parsing",
+    "branch": "Jules-by-google-12002212825222645897",
+    "sha": "eb719445cd34348bd01ace230f505ba97b7deb39",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 153,
+    "title": "⚡ Bolt: Deduplicate noise calculations in terrainInfo",
+    "branch": "Jules-by-google-10383362312609928429",
+    "sha": "5d5de0809cca6602459687017c758371907af11f",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 152,
+    "title": "🛡️ Sentinel: Fix Prototype Pollution vulnerability in state restoration",
+    "branch": "sentinel-safe-assign-prototype-pollution-11533756397608586371",
+    "sha": "a672566c253746232cbdfca4b40f3c9430b70160",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 151,
+    "title": "⚡ Bolt: optimize torchSource() per-frame allocations",
+    "branch": "Jules-by-google-17048509740870416393",
+    "sha": "b375a4347648e7158080e51d1caf97db13628873",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 150,
+    "title": "⚡ Bolt: optimize chunk meshing block lookup with 3x3 neighbor array",
+    "branch": "jules-10919878479438289316-7bdc0317",
+    "sha": "02b63cff3129aa0b5bbb5de6d38aae05f0c1036d",
+    "group": "mesh-block-lookup",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 149,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-3218972767797362868",
+    "sha": "bcb9c6657f19ce2286134f5285979c32800f1af4",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 148,
+    "title": "Fix block modification boundary bug at bedrock layer y=0",
+    "branch": "Jules-by-google-5209177093666251998",
+    "sha": "43e4e1e82376a1bdacc5cce7107b20c8b3c66d22",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 147,
+    "title": "⚡ Bolt: memoize tile UV coordinates in uvFor",
+    "branch": "bolt-memoize-uv-cache-2559109034725077976",
+    "sha": "ecf16aefdb020174f8296a9416fc5ffef6786af6",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 146,
+    "title": "🎨 Palette: Add ARIA labels for icon buttons and keyboard focus-visible styles",
+    "branch": "palette-aria-focus-visible-2508292434980027603",
+    "sha": "01328d0fc4a08c2bc453449e7a4b01ab6516d3de",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 145,
+    "title": "🛡️ Sentinel: [HIGH] Fix prototype pollution in JSON state restoring",
+    "branch": "jules-11085772691077524642-7269cccd",
+    "sha": "3d242217fa0fb732e6075b38d22268b43efe78b2",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 144,
+    "title": "🛡️ Sentinel: [HIGH] Fix prototype pollution vulnerability in state restoration",
+    "branch": "jules-2271883191656711206-b8ba6acc",
+    "sha": "137e35eed9c40ff857fe6fb3cfa0e5cd8b542f94",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 143,
+    "title": "⚡ Bolt: Optimize torchSource rendering to eliminate per-frame allocations",
+    "branch": "Jules-by-google-7739232104896575207",
+    "sha": "54e4e12296b019caa749278b4b17aa2fa7f080e9",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 142,
+    "title": "⚡ Bolt: optimize string coordinate key parsing in hot rendering paths",
+    "branch": "Jules-by-google-7738061000807348715",
+    "sha": "956608470dd9563691c54e274dd927225623141e",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 141,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for accessibility",
+    "branch": "Jules-by-google-10598938083397252087",
+    "sha": "d83701b70adcbf3ffae01c633fae4d0985b99bb7",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 140,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "jules-2933911637526439814-fa899172",
+    "sha": "4c36d782cd16dec2421e0d7f67e0a21b9df8f052",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 139,
+    "title": "⚡ Bolt: Optimize coordinate key parsing",
+    "branch": "Jules-by-google-5327574268730535",
+    "sha": "5358896a3cf843674a96a310672616f4e1775839",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 138,
+    "title": "🛡️ Sentinel: [HIGH] Fix prototype pollution in JSON save loading",
+    "branch": "Jules-by-google-15194350314217090351",
+    "sha": "da52413bce2c2c1f2ac00624630e2abc4230ebd5",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 137,
+    "title": "⚡ Bolt: Cache player vitals in updateVitals to prevent DOM thrashing",
+    "branch": "Jules-by-google-16926869500338182940",
+    "sha": "1b624d4a4b9ce32e5059389656d15e06645f93fc",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 136,
+    "title": "⚡ Bolt: optimize coordinate key parsing in chunk streaming and torch lighting",
+    "branch": "jules-bolt-perf-key-parsing-17796189818069746012",
+    "sha": "e682681a41db41976d94b4746af4efeb6e3bc8ff",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 135,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-535478606316050498",
+    "sha": "609dd0291feafea542425bd5d4f331b0c38c6855",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 134,
+    "title": "⚡ Bolt: optimize torchSource key parsing in render loop",
+    "branch": "Jules-by-google-13300859600689727353",
+    "sha": "5deba9bcb432d508f8cbb7d44c14dad0c18f4f7c",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 133,
+    "title": "🛡️ Sentinel: Fix prototype pollution vulnerability in world save loader",
+    "branch": "Jules-by-google-13902766660986571832",
+    "sha": "24db8cf3307d5f6724e205fe6cf481a6b22eace4",
+    "group": "save-deserialization",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 132,
+    "title": "⚡ Bolt: optimize vertexAO in chunk meshing by removing per-vertex array allocations",
+    "branch": "jules-13373952245869548259-8fe299c7",
+    "sha": "b337521104a617dfc266abf58294df451ac96f4b",
+    "group": "vertex-ao",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 131,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel seed display",
+    "branch": "Jules-by-google-5642917851598332021",
+    "sha": "a543441332c3875610f44d4fff789989491668d1",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 130,
+    "title": "Optimize string coordinate parsing in web/game.js",
+    "branch": "Jules-by-google-3032348053791060340",
+    "sha": "355fa21b04f87d199f3d2e8b3a720e1475f93898",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 129,
+    "title": "🎨 Palette: Add ARIA labels and title tooltips to icon-only buttons",
+    "branch": "Jules-by-google-7161295875762166140",
+    "sha": "2b0914fe24696173b6819e6ee4929a5b63476aac",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 128,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel seed rendering",
+    "branch": "Jules-by-google-11170035943646429751",
+    "sha": "7bad73de7460b67a73a54000fc023404c4c409fa",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 127,
+    "title": "⚡ Bolt: Eliminate per-frame heap allocations in torchSource",
+    "branch": "bolt-torch-source-allocations-4171565405427112145",
+    "sha": "8d3a97231b53a2de79d70e19ca9617e325bb9e67",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 126,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-14549911816996858821",
+    "sha": "b69b00411e2b29c446f9a44018a75b01f30cb1a8",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 125,
+    "title": "perf: optimize terrain noise computation and add terrainCache",
+    "branch": "Jules-by-google-13809431314534967577",
+    "sha": "f8f775d37ce46112c9d130dec566e09d3829edcd",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 124,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel",
+    "branch": "Jules-by-google-1583060242239839494",
+    "sha": "07a3442b786c7aab3c1ef9f348b904622dffec14",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 123,
+    "title": "Add mouse wheel hotbar navigation and optimize torchSource GC",
+    "branch": "Jules-by-google-16109139271538889412",
+    "sha": "377286d61b17aa85f35e05c190e222f0909efe85",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 122,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for screen reader accessibility",
+    "branch": "Jules-by-google-3718787593512288",
+    "sha": "64dc5a3677178c1ddb34bc0c5946f1535170b9fb",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 121,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-9335908814636160036",
+    "sha": "245be0d562e289744c7c05a08e5ab086ce98d891",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 120,
+    "title": "⚡ Bolt: optimize procedural terrain generation with FBM deduplication and bounded caching",
+    "branch": "Jules-by-google-13622238771795410313",
+    "sha": "adc80118a68e25d8478482ff5749dc5f53e39027",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 119,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel seed display",
+    "branch": "Sentinel-fix-xss-seed-10133635209804727435",
+    "sha": "fd0eaa79d1896b5f459ac972e785be19a7548c8d",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 118,
+    "title": "⚡ Bolt: cache WebGL attribute and uniform locations",
+    "branch": "bolt-cache-webgl-locations-7570348408366677042",
+    "sha": "23951ca3a3e10aa11e817f3f7add394acfa3c8bf",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 117,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug overlay rendering",
+    "branch": "Jules-by-google-17260751592017855332",
+    "sha": "3b1bc779b6871145324f31bd91305cc7edfa1e6e",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 116,
+    "title": "🎨 Palette: Add ARIA labels to icon-only UI buttons",
+    "branch": "jules-10821675207958176103-005c2ea3",
+    "sha": "38e1c4a95e61ca8035946bad93922d6c4ab6189e",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 115,
+    "title": "⚡ Bolt: Optimize torchSource per-frame allocations",
+    "branch": "Jules-by-google-15307062163510127526",
+    "sha": "1cd5b35b1b2bea829b193023ece08f3227f18f23",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 114,
+    "title": "⚡ Bolt: optimize torchSource to eliminate per-frame allocations",
+    "branch": "Jules-by-google-3280618483944866834",
+    "sha": "719d5ad06e0dc576b214a4447b08fa94da2a137b",
+    "group": "torch-allocations",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 113,
+    "title": "⚡ Bolt: Optimize torch light source calculation & coordinate key parsing",
+    "branch": "Jules-by-google-12599839131276052995",
+    "sha": "f5d27598809d16a78a0b1deacf737ba7800a8dc5",
+    "group": "coordinate-parsing",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 112,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon-only buttons",
+    "branch": "jules-15700743258264220236-0e0240a3",
+    "sha": "f3a61e23a02b5e8df63add4df1daddbcf82f05c1",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 111,
+    "title": "🛡️ Sentinel: Fix DOM XSS in debug HUD seed rendering",
+    "branch": "Jules-by-google-2784619913876774280",
+    "sha": "ded23a80dad2cd2eb5c1c8c722f30e531c8177f6",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 110,
+    "title": "⚡ Bolt: Cache WebGL uniform locations on program instances",
+    "branch": "bolt-cache-uniform-locations-8896966029455124868",
+    "sha": "43537f66e408487838f1b551188780c1fbfdb211",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 109,
+    "title": "⚡ Bolt: Memoize procedural terrain noise evaluations",
+    "branch": "Jules-by-google-10150730174756435178",
+    "sha": "21c83ab0511c9abb200d95f6d1c2a01fd8394897",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 108,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM XSS vulnerability in debug overlay",
+    "branch": "Jules-by-google-12756137604323395430",
+    "sha": "41db4f6e7e2c5bccc0ebadb82ce8b0c554b87b5d",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 107,
+    "title": "🎨 Palette: Add ARIA labels to icon-only UI buttons",
+    "branch": "Jules-by-google-10450781956514546731",
+    "sha": "8bdc012f68262915ec2dda0bef6d721807bb6670",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 106,
+    "title": "⚡ Bolt: cache WebGL uniform locations to reduce driver overhead",
+    "branch": "Jules-by-google-4499251701162317863",
+    "sha": "55ae9df86d8e10711c831cea0b022b42ff2ea35b",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 105,
+    "title": "⚡ Bolt: memoize UV coordinate calculations during chunk meshing",
+    "branch": "Jules-by-google-16587537195107695942",
+    "sha": "00ec942e71160369e19d8bf91f00299dadfa8fde",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 104,
+    "title": "🛡️ Sentinel: Sanitize world seed output in debug panel to prevent DOM XSS",
+    "branch": "jules-by-google-10991500406124763775",
+    "sha": "92dc954b7e2c6bff9c5a569daccb9213d5532a2f",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 103,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-add-aria-labels-2604897138282600184",
+    "sha": "293a2a9ea25aca249b367c7d574394c7bcf62123",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 102,
+    "title": "perf: memoize terrainInfo calculations with bounded cache",
+    "branch": "Jules-by-google-5690606851666135277",
+    "sha": "ff4f15ff1c4ea34b6fbdc5e985e31a0eaff45936",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 101,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel",
+    "branch": "jules-3375535125746247000-7c935c42",
+    "sha": "3d1a1ee46d04f3363b58fd09c632fb213a28a75d",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 100,
+    "title": "perf: optimize procedural terrain generation with FBM deduplication and bounded caching",
+    "branch": "Jules-by-google-2312642168034018735",
+    "sha": "d14419f0cf03a3dd877d97f8427e0b3459aeb47f",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 99,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and modal buttons",
+    "branch": "Jules-by-google-2925342003485140919",
+    "sha": "27c1748b7c1009bc758c79203b9e5636fad03584",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 98,
+    "title": "⚡ Bolt: optimize torch light source calculation per frame",
+    "branch": "jules-6702701685014604827-814b0c29",
+    "sha": "31076d614f762b60812e50b615fd8513de1e2a92",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 97,
+    "title": "⚡ Bolt: Optimize procedural terrain noise and matrix multiplication",
+    "branch": "bolt-terrain-matrix-opt-9781826430776702400",
+    "sha": "322533021b3b6529521a08d58c10fe20ec5bcf5e",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 96,
+    "title": "🛡️ Sentinel: Sanitize world seed input in debug overlay to prevent XSS",
+    "branch": "sentinel-sanitize-debug-seed-17522929030202874611",
+    "sha": "2c95c3068ba234734a595da523a79938a0e4a71f",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 95,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD, touch, and dialog close buttons",
+    "branch": "jules-17353738371130435486-6f18493f",
+    "sha": "0c8753385679a5780ef63657b61bae4a66ce7644",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 94,
+    "title": "⚡ Bolt: Optimize WebGL rendering uniforms and attribute locations",
+    "branch": "Jules-by-google-8171475475706606660",
+    "sha": "8ac6ad2a6857d099f4e07523243d09cf57ba2101",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 93,
+    "title": "⚡ Bolt: optimize terrain noise calculations with bounded terrainCache Map",
+    "branch": "Jules-by-google-6297417409688106209",
+    "sha": "2f5ecc94a661bfc41b1bf9e20e1692f2ad54d6be",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 92,
+    "title": "⚡ Bolt: Cache procedural terrainInfo calculations in bounded terrainCache Map",
+    "branch": "bolt-terrain-cache-5683574443491137553",
+    "sha": "9378cf0694cef445adbc8f9d4dfade9b36f16d91",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 91,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel renderer",
+    "branch": "Jules-by-google-5031672230825350322",
+    "sha": "1ca3c749db0ba614e0f6804d5c5f0ce647a79748",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 90,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for accessibility",
+    "branch": "jules-10239140004929763541-9aee464a",
+    "sha": "924ab6c7951a7ebdd388444488365884024cfb1a",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 89,
+    "title": "⚡ Bolt: optimize terrain noise calculations with bounded terrainCache Map",
+    "branch": "Jules-by-google-1974784007907676206",
+    "sha": "125640392c0dd660340d394c77729827ed8175c0",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 88,
+    "title": "⚡ Bolt: cache terrain computations with bounded terrainCache Map",
+    "branch": "Jules-by-google-3082096907220604961",
+    "sha": "07d328f06b723c226898dc3a0a9945a72b826366",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 87,
+    "title": "🛡️ Sentinel: [HIGH] Fix Stored XSS in debug panel",
+    "branch": "Jules-by-google-3871751714010007295",
+    "sha": "b62f6726ff7e8557751d321dec9ee2aa350478f4",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 86,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-1613592507682005314",
+    "sha": "dcd3220965e15a79c5a5cbf7cdda418f169ef5cb",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 85,
+    "title": "⚡ Bolt: Optimize WebGL shader uniform updates and location lookups",
+    "branch": "bolt-optimize-webgl-uniforms-11418916807937555295",
+    "sha": "dd1f75c1a2c925bedbddc2b40a4d8d49eeea9ce2",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 84,
+    "title": "🛡️ Sentinel: [HIGH] Fix DOM XSS in debug panel",
+    "branch": "shield-xss-fix-14339201017020003927",
+    "sha": "e3bc748541233e1e6dcb26a32ff9d1ca9b286222",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 83,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons and keyboard focus-visible styles",
+    "branch": "jules-5453676018739679149-33fce4b5",
+    "sha": "c1555983514a62efc65e71c58fda3fd9a2cc9221",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 82,
+    "title": "⚡ Bolt: cache procedural terrainInfo calculations in bounded Map",
+    "branch": "Jules-by-google-7577426981572847158",
+    "sha": "244a058cf95f35bc3e0b82c0bce0301384ec98e3",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 81,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "jules-palette-aria-labels-16017687989642050250",
+    "sha": "e379cda37cabace2c7a39e85e5a26c8ee9dbb200",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 80,
+    "title": "⚡ Bolt: cache WebGL uniform locations",
+    "branch": "bolt-cache-uniform-locations-6992341241357612919",
+    "sha": "83b464493c5ee10976e71957c38933713af428a6",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 79,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug overlay",
+    "branch": "jules-1876614530706978874-2eebe835",
+    "sha": "c267cc9b7ffb727310479c7c1b261197ce14bd02",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 78,
+    "title": "⚡ Bolt: optimize terrainInfo with bounded terrainCache",
+    "branch": "Jules-by-google-3097030489899745106",
+    "sha": "d9184549adaa1224471ccae1f9ab99d56e0c00e9",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 77,
+    "title": "⚡ Bolt: memoize terrainInfo with bounded terrainCache",
+    "branch": "Jules-by-google-7895422833927873730",
+    "sha": "088fc1910c790f08dc59d9c48a3ac3ec2719fee2",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 76,
+    "title": "⚡ Bolt: Cache WebGL uniform locations to eliminate per-frame driver lookups",
+    "branch": "bolt-cache-uniform-locations-6930465678225210508",
+    "sha": "3efb196d2183a7c298d21abb9f12919fc4c8ba88",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 75,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons for accessibility",
+    "branch": "Jules-by-google-12402547256234289062",
+    "sha": "e0cf1ade602ede53177879a6ca1cd015523687a0",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 74,
+    "title": "🛡️ Sentinel: Fix DOM XSS vulnerability in debug panel seed rendering",
+    "branch": "jules-sentinel-xss-fix-6127035501000297358",
+    "sha": "bb20c7fa0abe6517fc841a21c57d06f6bdcda9c2",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 73,
+    "title": "⚡ Bolt: reuse static Float32Array buffer in matrix multiplication",
+    "branch": "Jules-by-google-13486583897832652180",
+    "sha": "b820660fa14034ae6ec184a5382a30e47d5c6bbc",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 72,
+    "title": "🛡️ Sentinel: [CRITICAL/HIGH] Fix XSS vulnerability in debug panel and enforce CSP",
+    "branch": "sentinel/fix-xss-debug-panel-csp-3083599895950951306",
+    "sha": "df19acba1b2b7ab4391e62af6ed923da41ac0c41",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 71,
+    "title": "perf: memoize procedural terrain calculations with bounded cache",
+    "branch": "Jules-by-google-883834918920023594",
+    "sha": "ff4c08d3726d6d2e30ed0f550a54e53b31b81fa0",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 70,
+    "title": "🎨 Palette: Add accessible ARIA labels to icon buttons and touch controls",
+    "branch": "Jules-by-google-14815773096678440150",
+    "sha": "6d9577920be5e253b75712b950003b0d2934fa02",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 69,
+    "title": "🎨 Palette: Add ARIA labels and titles to icon-only buttons",
+    "branch": "jules-3361731677841834325-a8685907",
+    "sha": "df5dcc4e18b7a8854281c6530639e9c8d3b2d6f7",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 68,
+    "title": "⚡ Bolt: optimize terrain calculations with bounded terrainCache",
+    "branch": "Jules-by-google-7179106670589260474",
+    "sha": "24c249b26fe836d5f3061c32e35c8a117e858607",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 67,
+    "title": "🛡️ Sentinel: [security improvement]",
+    "branch": "Jules-by-google-2544881158929437508",
+    "sha": "da141522926e9e02a7f99f8dde90a96566c20f33",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 66,
+    "title": "⚡ Bolt: Cache WebGL uniform locations in render loop",
+    "branch": "bolt-cache-uniform-locations-5011763497445175455",
+    "sha": "7528ea999417b8b17bf9622abb80c0daae50ea2f",
+    "group": "uniform-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 65,
+    "title": "⚡ Bolt: Cache procedural terrain calculations with bounded terrainCache",
+    "branch": "bolt-terrain-cache-optimization-11788826108568596358",
+    "sha": "78cb62015714e7da878d7636b8d627c7fea3761b",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 64,
+    "title": "🛡️ Sentinel: Fix DOM XSS vulnerability in debug overlay",
+    "branch": "sentinel-fix-debug-xss-14100208378985208498",
+    "sha": "35697636c70e54639f4003530357fe7864c217cb",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 63,
+    "title": "⚡ Bolt: optimize terrain generation with bounded terrainCache",
+    "branch": "Jules-by-google-8912599129601608237",
+    "sha": "2b05a6ccef16bba7856212c2697684493333b19b",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 62,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "Jules-by-google-4603809821141764789",
+    "sha": "9e92776a827611eb96c46a9014cf21656b32ac3b",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 61,
+    "title": "⚡ Bolt: optimize terrain noise calculations with bounded terrainCache",
+    "branch": "Jules-by-google-15230803349617122685",
+    "sha": "1c9d777f718340705deba221698d38537f68a057",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 60,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "jules-17192674321449138719-e3703273",
+    "sha": "8165ea610da74db16f4c2f38ae5bf5b516939c6f",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 59,
+    "title": "🛡️ Sentinel: add Content Security Policy meta tag to index.html",
+    "branch": "Jules-by-google-1429908194874156992",
+    "sha": "ca2da503e73730ad73ca0e92a48f3d13e7f1e512",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 58,
+    "title": "⚡ Bolt: Add bounded terrain calculation cache",
+    "branch": "Jules-by-google-6917008494998906100",
+    "sha": "12c7ec09de69c176f3387b8e4b848f56608b0ba9",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 57,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD, modal, and control buttons",
+    "branch": "Jules-by-google-13257275350650222096",
+    "sha": "85d182d8e0d4873c19ccc48e0487bbbab6c3dcce",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 56,
+    "title": "⚡ Bolt: optimize terrain noise calculations with bounded terrainCache",
+    "branch": "bolt-terrain-cache-optimization-10108451508364741545",
+    "sha": "eb3cfb037b409736f276676bc7dd3893f4235f3b",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 55,
+    "title": "⚡ Bolt: optimize procedural terrain calculations with bounded terrain cache",
+    "branch": "Jules-by-google-5956781708010603219",
+    "sha": "1bf227ba5df55e866757623146272515682a6919",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 54,
+    "title": "🛡️ Sentinel: [CRITICAL/HIGH] Fix XSS vulnerability in debug overlay",
+    "branch": "Jules-by-google-10961700943199382696",
+    "sha": "8a6898c4a9ddd12b391aa9e02817b3b2a41ce0ac",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 53,
+    "title": "🛡️ Sentinel: Fix XSS vulnerability in debug panel seed rendering",
+    "branch": "jules-7353873759917389159-b8a96a38",
+    "sha": "94dc97f7e9460e02705f61fe4d4b7e66b546daa5",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 52,
+    "title": "⚡ Bolt: optimize procedural terrain calculation with bounded terrainCache",
+    "branch": "Jules-by-google-11043113218867304458",
+    "sha": "ae961fb184ec761da8be442b709078aa5aa54b06",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 51,
+    "title": "⚡ Bolt: cache terrainInfo calculations using bounded Map",
+    "branch": "Jules-by-google-8794591965623548077",
+    "sha": "dbdd744ac848b1149230935f7a7a1868459a758c",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 50,
+    "title": "⚡ Perf: Memoize procedural terrainInfo computations with bounded cache",
+    "branch": "Jules-by-google-15049907018574186253",
+    "sha": "cb1012129d4fbc7cc1a95df2f10c4f588137073a",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 49,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-aria-labels-2699329375759581001",
+    "sha": "c9eae3306a31c0341a0af4d5e53f90222df7874c",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 48,
+    "title": "⚡ Bolt: eliminate redundant procedural noise calculations in terrainInfo",
+    "branch": "bolt-optimize-terrainInfo-fbm-4770982534318104204",
+    "sha": "419327df8e10d5d2de541bbd3351ecdf9d779787",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 47,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug panel seed display",
+    "branch": "Jules-by-google-4978421181468923905",
+    "sha": "baa358148b021985260a11a8e8415b01f96a7e5f",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 46,
+    "title": "🛡️ Sentinel: Add Content Security Policy meta tags",
+    "branch": "Jules-by-google-18389859834419895956",
+    "sha": "101fe8808d1121fa5f8e795f00f09d7ac240bc8a",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 45,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD, modal, and action buttons",
+    "branch": "Jules-by-google-8026639883355092516",
+    "sha": "2c00beae849230a51a112a7c4acafc2b5189b136",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 44,
+    "title": "⚡ Bolt: Memoize terrainInfo calculations with bounded terrainCache",
+    "branch": "bolt-memoize-terrain-info-9254333989875588498",
+    "sha": "7b27ba21f8cd8259b5e299108fd1772ec0915e18",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 43,
+    "title": "⚡ Bolt: optimize terrain generation with bounded terrainCache Map",
+    "branch": "Jules-by-google-17598396144333243691",
+    "sha": "0908dd3f0ed39b617d59aa454a2dcbb46455946f",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 42,
+    "title": "⚡ Bolt: optimize terrain generation with terrainCache and single-pass biome noise",
+    "branch": "bolt-optimize-terrain-generation-5888678800146589111",
+    "sha": "292a3ed176f76487971f7e6c4f1df823b5f7602b",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 41,
+    "title": "⚡ Bolt: optimize procedural terrain calculations with bounded cache",
+    "branch": "Jules-by-google-3655911871350989482",
+    "sha": "d92e6e19824ba67330b22797ba5cdcbcbf5d1afb",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 40,
+    "title": "🎨 Palette: Add ARIA labels to icon-only HUD and dialog buttons",
+    "branch": "Jules-by-google-3451026428540534843",
+    "sha": "3a2d65c61ac2a21e2d19dc441970bc4d207a089d",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 39,
+    "title": "🛡️ Sentinel: add Content Security Policy meta tag",
+    "branch": "jules-by-google-510777368229698902",
+    "sha": "45cd51c846320d2268f05473587c9ab70faaf5f5",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 38,
+    "title": "Fix inventory sorting to preserve hotbar and merge stacks",
+    "branch": "Jules-by-google-454861341299647056",
+    "sha": "4795d064c27e21a2a3b5219d677939e3a9d9f831",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 37,
+    "title": "🛡️ Sentinel: Add Content Security Policy header tag",
+    "branch": "Jules-by-google-9221896306913994987",
+    "sha": "708df4bc7e6f9b44e487524bb40ef0f3ec013c09",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 36,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-aria-labels-4196719255659542006",
+    "sha": "0f065f13f31edcd15bcfed455135695f0f070ff3",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 35,
+    "title": "🛡️ Sentinel: [HIGH] Fix XSS vulnerability in debug overlay seed rendering",
+    "branch": "Jules-by-google-13818938488897405030",
+    "sha": "6fc4e9b41f39f3d4fa11b1732f4d7defb1609005",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 34,
+    "title": "perf: add bounded terrain calculation cache",
+    "branch": "Jules-by-google-17866479858317332552",
+    "sha": "98dc127309cc66eb5a15bffc7f55916a600c4969",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 33,
+    "title": "🎨 Palette: Add ARIA labels for icon-only buttons and theme-aligned focus-visible indicators",
+    "branch": "Jules-by-google-8028786144076804055",
+    "sha": "73346be9844626d67b28043335bf7a36819f5591",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 32,
+    "title": "⚡ Bolt: Add bounded terrainCache to avoid redundant FBM terrain computations",
+    "branch": "bolt-terrain-cache-4935826964052288614",
+    "sha": "ba8e24bc83e5d49f85fa219bf7ec32bbb0ad9660",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 31,
+    "title": "⚡ Bolt: optimize procedural terrain calculations with bounded Map cache",
+    "branch": "Jules-by-google-12062467140388496349",
+    "sha": "ec1fa89f7e4a2a02e01ed4db86d4874773a555d1",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 30,
+    "title": "🛡️ Sentinel: [security improvement] Hardened WebView & CSP",
+    "branch": "Jules-by-google-4537007501188031174",
+    "sha": "ef7c0081f3c2a5169b5a4652b65f723b80dd83ce",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 29,
+    "title": "⚡ Bolt: Optimize procedural terrain generation with bounded Map cache",
+    "branch": "Jules-by-google-51770208135573335",
+    "sha": "85aad2e0ac96351afb96336904b9b2f97f970329",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 28,
+    "title": "🎨 Palette: Improve keyboard focus accessibility and add aria-labels",
+    "branch": "jules-3102749496087925389-e2359430",
+    "sha": "ac6d2b40007699e76d1dd0b3fa0779be537cb845",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 27,
+    "title": "⚡ Bolt: Procedural Terrain Generation Cache",
+    "branch": "jules-4828300369907284608-065eb465",
+    "sha": "ba8e028f0e411a341ff4896b29cebef65f005678",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 26,
+    "title": "🎨 Palette: Theme-aligned gold focus outlines and ARIA labels",
+    "branch": "jules-13621304358248554810-11868f69",
+    "sha": "a9dfaf4e8dadea9f5512b7e342875b2714da29d5",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 25,
+    "title": "🛡️ Sentinel: HIGH Fix Missing CSP and Open WebView Navigation",
+    "branch": "Jules-by-google-3895745205554367868",
+    "sha": "95fa0cb92afca8b0528132c78be60809b39e12ab",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 24,
+    "title": "🛡️ Sentinel: implement Content Security Policy and harden WebView navigation",
+    "branch": "sentinel-webview-csp-hardening-13880563811086916080",
+    "sha": "01a939a73308e1e41f584de026fa915e21b3301c",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 23,
+    "title": "🎨 Palette: Improve Accessibility with ARIA Labels and High-Contrast Focus Rings",
+    "branch": "Jules-by-google-14466232990676648519",
+    "sha": "bd915e0d41737fe11d1d2247cc9d1382caf13eab",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 22,
+    "title": "🎨 Palette: Immersive Keyboard Focus States and Icon ARIA Accessibility",
+    "branch": "jules-3001603799179361830-add16297",
+    "sha": "2db4ba16d6fc134d605f1cbe8d7ea5aeaa0f36c5",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 21,
+    "title": "🛡️ Sentinel: implement Content Security Policy and harden WebView navigation",
+    "branch": "jules-6544835295979883762-504f1265",
+    "sha": "9618f0a0f233af223f995e4c9967e7ee6d87d8a3",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 20,
+    "title": "🎨 Palette: Immersive Keyboard Focus States and Icon ARIA Accessibility",
+    "branch": "jules-2313236726649358361-15c9edb3",
+    "sha": "b9d935d7c248f2d9b4b67b217931a9f751249790",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 19,
+    "title": "⚡ Bolt: Add bounded Map caching for terrainInfo calculation",
+    "branch": "bolt-terrain-caching-11004957430107187950",
+    "sha": "080a8c6472195adb1cfc0d7ca7e40a0d4e95ed2f",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 18,
+    "title": "🛡️ Sentinel: Add strict CSP and restrict WebView frame navigation",
+    "branch": "Jules-by-google-11727343881728164054",
+    "sha": "71cf1e005e0cf67b7da1206f40e6d8648349d2fc",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 17,
+    "title": "⚡ Bolt: optimize procedural terrain generation with bounded Map cache",
+    "branch": "jules-4936637513773616746-717bdd74",
+    "sha": "7efbbb98e7571cdf38b725e5ef0fb5fb72e8200f",
+    "group": "terrain-cache",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 16,
+    "title": "🎨 Palette: Theme-aligned Keyboard Focus and ARIA Labels",
+    "branch": "jules-by-google-16690890795583892161",
+    "sha": "afb8a5ae3a18cc7b1fbf6849c8245784e38e60da",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 15,
+    "title": "🛡️ Sentinel: Add Strict CSP and WebView Navigation Restrictions",
+    "branch": "jules-13673199327061948341-f1233f04",
+    "sha": "1713b70876bb1d97b74910b35a17291046a991c3",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 14,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "jules-10957096337399822077-53fe2d38",
+    "sha": "38444c3c3152e9944f42a60de2450661a8b60757",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 13,
+    "title": "⚡ Bolt: terrain generation performance optimization",
+    "branch": "jules-1634853328234498690-d7db2af8",
+    "sha": "1b6b144190c9a22acba038a0c65944ddd3a75c1e",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 12,
+    "title": "✨ Improvement: Fix container loot drops and add swaying foliage",
+    "branch": "Jules-by-google-4062463966466627234",
+    "sha": "f4822c299c381b0a4224d54b9050b85c3f0ff333",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 11,
+    "title": "🎨 Palette: Improve accessibility of icon-only buttons with ARIA labels",
+    "branch": "Jules-by-google-2470463302394828119",
+    "sha": "7f1e8fa9895f85214e24bf6e8ce62879430636ea",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 10,
+    "title": "Add dynamic swaying foliage shader effect and Gradle wrapper",
+    "branch": "Jules-by-google-5220612604392930343",
+    "sha": "6c27f20448258e559af99b5e5505be0f60c13020",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 9,
+    "title": "🎨 Palette: Enhance button accessibility with ARIA labels and add theme-aligned focus-visible style",
+    "branch": "palette-ux-accessibility-improvements-16379152308319405593",
+    "sha": "5fcfd7b8f7039e926fb417bc73666b837b229d1a",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 8,
+    "title": "🛡️ Sentinel: Fix Stored XSS inside world seed debug render and restrict WebView navigations",
+    "branch": "jules-11354042583026480547-b725fe54",
+    "sha": "82b47dde742f60baa83fa01fc2bd646b1b8be291",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 7,
+    "title": "🎨 Palette: Add ARIA labels to icon-only buttons",
+    "branch": "palette-accessible-buttons-941425779902393106",
+    "sha": "e0eb6e07a36a62f7858bc0fcd36e6a00c979c30a",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 6,
+    "title": "🎨 Palette: Add keyboard focus states and accessibility labels to overlays and HUD controls",
+    "branch": "jules-18186234375584425253-8c3554a7",
+    "sha": "ea36893e5a16cecc159c5d86f43901b63bb2d9fa",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 5,
+    "title": "🛡️ Sentinel: Fix WebView and APK security vulnerabilities",
+    "branch": "jules-4759831864587442382-ce160d6c",
+    "sha": "92e0ad3c0f8cc9d1842da6a7cbc9ca9b42f648d4",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 4,
+    "title": "🎨 Palette: Retro accessibility & semantic labels UX",
+    "branch": "jules-13401081928439435791-221d3468",
+    "sha": "0f8c4847b028ec53912327210468fd7331defec4",
+    "group": "accessibility-labels",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 3,
+    "title": "🛡️ Sentinel: Fix DOM-based XSS vulnerability in FPS debug overlay",
+    "branch": "jules-17359945983804842946-6e4e56a9",
+    "sha": "94d8d8ba96869a7e88d032497c5a65b9e4d028c6",
+    "group": "seed-escaping",
+    "disposition": "archive-overlap-proposal"
+  },
+  {
+    "number": 2,
+    "title": "⚡ Bolt: Chunk meshing and voxel access optimization",
+    "branch": "bolt-chunk-meshing-optimization-6116508310398960841",
+    "sha": "3ab94e1849aea80f85698ae15c899a82b17faaf9",
+    "group": "individual",
+    "disposition": "keep-review"
+  },
+  {
+    "number": 1,
+    "title": "🎨 Palette: Add icon-button ARIA labels and custom focus-visible styling",
+    "branch": "jules-18018814678673365745-f2ad248b",
+    "sha": "665a4b4edf2f8c54f83db90f0bf84d44c9f36f83",
+    "group": "accessibility-focus",
+    "disposition": "archive-overlap-proposal"
+  }
+]

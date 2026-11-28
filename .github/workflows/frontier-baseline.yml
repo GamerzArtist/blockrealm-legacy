@@ -1,0 +1,17 @@
+name: Frontier baseline
+on:
+  pull_request:
+    paths: ['frontier/**', 'web/**', 'android/app/src/main/assets/**', '.github/workflows/frontier-baseline.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check web/game.js
+      - run: node --test frontier/qa/contracts.test.mjs

@@ -1,0 +1,30 @@
+name: Publish requested Wildlight APK
+on:
+  push:
+    branches: ['release/wildlight-preview-public']
+permissions:
+  actions: read
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Download and validate exact original APK artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh api "repos/$GH_REPO/actions/artifacts/14903384210/zip" > Wildlight-native-APK.zip
+          echo '5b91b0744467aa24d71c7064b85c0f2420e3ca1bf0a8562dd3975e0303d198de  Wildlight-native-APK.zip' | sha256sum --check
+          unzip -t Wildlight-native-APK.zip
+          mkdir extracted
+          unzip -q Wildlight-native-APK.zip -d extracted
+          mapfile -d '' apks < <(find extracted -type f -name '*.apk' -print0)
+          test "${#apks[@]}" -eq 1
+          cp "${apks[0]}" VoxelForge-Wildlight-native-preview.apk
+          sha256sum VoxelForge-Wildlight-native-preview.apk > SHA256SUMS.txt
+      - name: Publish public prerelease
+        run: |
+          gh release create wildlight-native-preview "VoxelForge-Wildlight-native-preview.apk" "SHA256SUMS.txt" --target 3282a55faf87bdc2a7c740434a98d311101d044e --title "VoxelForge Wildlight — Native Android Preview" --prerelease --notes "Exact APK from GitHub Actions artifact 14903384210 (run 45359871552). Debug-signed experimental native Creative preview, not the complete survival game. No WebView. Physical-device stability is not established. APK is already compiled; no Android Studio required for installation."
